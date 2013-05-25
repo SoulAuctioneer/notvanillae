@@ -2,11 +2,11 @@
 
 from google.appengine.api import memcache
 import jinja2
-import pickle
 
 import users
 import settings
 import decorators
+import utils
 
 
 # Initialize jinja
@@ -17,7 +17,7 @@ jinja_environment = jinja2.Environment(
 )
 
 
-def cache_lifetime(template_name, template_values, is_pjax):
+def cache_lifetime(template_name):
 
     return settings.cache.template_lifetime \
         if template_name in settings.routes and settings.routes[template_name].cachable \
@@ -25,10 +25,11 @@ def cache_lifetime(template_name, template_values, is_pjax):
 
 
 @decorators.cached(lifetime=cache_lifetime)
-def write(template_name, template_values, is_pjax):
+def write(template_name, template_values={}):
 
     # Render the output
-    template_values = add_template_values(is_pjax, template_values)
+    template_values = add_standard_template_values(template_values)
+    template_values['base_template'] = 'base_pjax.html' if utils.is_pjax() else 'base.html'
     output = render(template_name, template_values)
 
     return output
@@ -40,7 +41,7 @@ def render(template_name, template_values):
     return template.render(template_values)
 
 
-def add_template_values(is_pjax, template_values):
+def add_standard_template_values(template_values):
 
     # Grab standard template values
     if users.is_logged_in():
@@ -60,9 +61,6 @@ def add_template_values(is_pjax, template_values):
 
     # Get app title
     template_values['app_title'] = settings.app_title
-
-    # Identify PJAX requests
-    template_values['is_pjax'] = is_pjax
 
     # Identify local versus deployed
     template_values['is_local'] = settings.is_local

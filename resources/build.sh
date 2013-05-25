@@ -1,1 +1,0 @@
-cat jquery-1.9.1.js jquery.pjax.js socialite.js app.js | uglifyjs -mt

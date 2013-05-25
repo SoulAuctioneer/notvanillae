@@ -20,7 +20,7 @@
         <style>
             body {
                 padding-top: 60px;
-                /*padding-bottom: 40px;*/
+                padding-bottom: 40px;
             }
         </style>
         <link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css">
@@ -37,34 +37,24 @@
         <div id="wrap">
 
             <!-- Header -->
-
-            <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-            <div class="navbar navbar-inverse navbar-fixed-top">
+            <div id="main-menu" class="navbar">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
                         <a class="brand" href="{{ urls.intro }}" data-pjax>
                             {{ settings.app_title }}
                         </a>
                         <ul class="nav pull-right" id="main-menu-right">
                             <li id="signin_notice" style="opacity:0;">&nbsp;</li>
                         </ul>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav" id="main-menu-left">
-                                {% set navigation_bar = [
-                                    (urls.intro, 'intro', 'Intro'),
-                                    (urls.blog, 'blog', 'Blog')
-                                    ] -%}
-                                    {% for href, id, caption in navigation_bar %}
-                                        <li><a id="header-nav-menu-{{ id }}" href="{{ href|e }}"{% if id == active_nav %} class="active"{% endif %} data-pjax>{{ caption|e }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div><!--/.nav-collapse -->
+                        <ul class="nav" id="main-menu-left">
+                            {% set navigation_bar = [
+                                (urls.intro, 'intro', 'Intro'),
+                                (urls.blog, 'blog', 'Blog')
+                                ] -%}
+                                {% for href, id, caption in navigation_bar %}
+                                    <li><a id="header-nav-menu-{{ id }}" href="{{ href|e }}"{% if id == active_nav %} class="active"{% endif %} data-pjax>{{ caption|e }}</a></li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -89,19 +79,19 @@
             <div class="container">
                 <div class="row">
 
-                    <div id="footer-blurb" class="span7 padded">
+                    <div id="footer-blurb" class="span8 padded">
                         Footer text
                     </div>
 
-                    <div id="footer-share" class="span5 padded">
+                    <div id="footer-share" class="span4 padded">
 
                         <ul class="social-buttons">
 
                             <li>
                                 <div class="hackernews-share-wrapper">
-                                    <a href="http://news.ycombinator.com/submitlink?u={{ urls.canonical|escape }}&t={{ settings.app_title|escape }}" class="socialite hackernews-share" data-title="{{ settings.app_title }}" data-url="{{ urls.canonical }}">
-                                        <span class="vhidden">Hacker News</span>
-                                    </a>
+                                <a href="http://news.ycombinator.com/submitlink?u={{ urls.canonical|escape }}&t={{ settings.app_title|escape }}" class="socialite hackernews-share" data-title="{{ settings.app_title }}" data-url="{{ urls.canonical }}">
+                                    <span class="vhidden">Hacker News</span>
+                                </a>
                                 </div>
                             </li>
                             <li>

@@ -1,5 +1,3 @@
-__author__ = 'ash'
-
 # A lovely dot dictionary allows dot notation to access dictionary entries
 class DotDict(dict):
 

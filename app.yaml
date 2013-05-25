@@ -1,4 +1,4 @@
-application: yourshowonglass 
+application: aeboilerplate
 version: 1
 runtime: python27
 api_version: 1
@@ -16,12 +16,13 @@ handlers:
 
 - url: /assets
   static_dir: assets
-#  expiration: 7d
-#  http_headers:
-#    Last-Modified: "Tue, 10 May 2013 00:00:00 GMT"
+  expiration: 7d
+  http_headers:
+    Last-Modified: "Tue, 10 May 2013 00:00:00 GMT"
 
 - url: .*
   script: main.app
+
 
 libraries:
 
@@ -30,8 +31,3 @@ libraries:
 
 - name: jinja2
   version: latest
-
-
-inbound_services:
-
-- warmup

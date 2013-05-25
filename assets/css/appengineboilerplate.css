@@ -1,0 +1,107 @@
+/* Bootstrap resets */
+
+    .navbar .nav>li>a.active {
+        color: white;
+    }
+
+/* End Bootstrap resets */
+
+
+/* PJAX */
+
+    .spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: 15px;
+        width: 31px;
+        height: 31px;
+        background: url(../img/spinner-dark.gif) transparent;
+    }
+
+/* End PJAX */
+
+
+/* Footer */
+
+    #footer {
+        background: black;
+        color: white;
+    }
+
+    #footer .padded {
+        padding-top: 8px;
+    }
+
+    #footer-share {
+        text-align: right;
+        min-height: 24px;
+    }
+
+    @media (max-width: 767px) {
+        #footer-share {
+            text-align: left;
+            float: left;
+        }
+        #footer-share .social-buttons > li {
+            float: left;
+            margin-left: 0px;
+            margin-right: 10px;
+        }
+        #footer div.container {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+    }
+
+/* End Footer */
+
+
+/* Sticky Footer */
+
+    body {
+        padding: 0;
+    }
+
+    @media (min-width: 980px) {
+        #content {
+            padding-top: 80px;
+        }
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    /* Wrapper for page content to push down footer */
+    #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height + body top padding */
+        margin: 0 auto -40px;
+    }
+
+    /* Set the fixed height of the footer here */
+    #push,
+    #footer {
+        min-height: 40px;
+    }
+
+/* End Sticky Footer */
+
+
+/* Socialite Look-a-like defaults */
+
+    .social-buttons { list-style: none; margin: 3px 0; }
+    .social-buttons > li { display: block; margin-left: 10px; float: right; }
+    .social-buttons .twitter-share { width: 55px; height: 24px; background-position: 0 -40px; }
+    .social-buttons .googleplus-one { width: 33px; height: 24px; background-position: -75px -40px; }
+    .social-buttons .facebook-like { width: 48px; height: 24px; background-position: -145px -40px; overflow: hidden; }
+    .social-buttons .linkedin-share { width: 60px; height: 24px; background-position: -215px -40px; }
+    .social-buttons .hackernews-share-wrapper { width: 68px; height: 24px; overflow: hidden; }
+
+    .vhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* End Socialite Look-a-like defaults */

@@ -1,14 +1,17 @@
 from urlparse import urlparse
+import webapp2
 
 
-def is_pjax(request):
+def is_pjax():
+
+    request = webapp2.get_request()
     return 'HTTP_X_PJAX' in request.headers.environ
 
 
-def pjaxify_response(request, response):
+def pjaxify_response(response):
 
     # Ensure the pjax url param is included to avoid the browser caching wrong response
-    if is_pjax(request):
+    if is_pjax():
         response.location = add_url_params(response.location, {'pjax': '#content'})
 
     return response

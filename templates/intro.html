@@ -1,75 +1,39 @@
-{% if is_pjax %}
-    {% extends "base_pjax.html" %}
-{% else %}
-    {% extends "base.html" %}
-{% endif -%}
+{% extends base_template %}
 
-{% set active_nav = "about" %}
+{% set active_nav = "intro" %}
 
-{% block title %}About{% endblock %}
+{% block title %}Intro{% endblock %}
 
 {% block content %}
-<div id="content-about" class="row">
-    <div class="span7 content-panel align-justify">
-        <h1>About YourShow</h1>
-        <p>
-            YourShow is our first "Glassware" app.
-            We've got a working prototype,
-            and we're waiting not-so-patiently for our Mirror API access so we can crank this thing up!
-        </p>
 
-        <p>
-            Right now it's very basic, but we've got
-            plenty of time before the official Glass launch
-            to make it awesome.
-            What we like about YourShow is that it's genuinely useful
-            software and only possible because of this new platform.
-        </p>
-        <p>
-            Some features we're actively working on are:
-            <ul>
-                <li>Support for more popular presentation formats.</li>
-                <li>Translation of your slide notes, as subtitles on your presentation slides,
-                    and as audio streams that your audience can listen to via their smartphones,
-                    synchronized to your current slide.</li>
-            </ul>
-        </p>
-        <p>
-            The first release of the Glass Mirror API is quite limited,
-            although of course it'll get more powerful with time.
-            Some features we're aiming to deliver when they become possible are:
-            <ul>
-                <li>Automagically flipping slides, using voice recognition
-                    to know when you've read all your notes -- for a truly hands-free experience.</li>
-                <li>Using subtle head gestures and voice commands to control your slides.</li>
-                <li>Recording your presentation, including voice, slides and audience reactions,
-                    for sharing later or as a real-time webcast.</li>
-                <li>Real-time translation of your voice, as subtitles on your presentation slides
-                    and as audio streams that your audience can listen to via their smartphones. </li>
-                <li>More more more!</li>
-            </ul>
-        </p>
-        <p class='spaced'>
-            <a class='biglink' href='{{ urls.presentations }}'>Try the Demo</a> &nbsp; <em>No Glass? No problem! Use YourShow with phones and tablets</em>
-        </p>
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+        <h1>Hello, world!</h1>
+
+        <p>Cook up your new Google App Engine site fastah and bettah, with AppEngine Boilerplate.</p>
+        <p>We mix up a delicious blend of the tastiest web treats: HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer for a fast and responsive front-end experience.</p>
+        <p>On the back end, a jinja2 wrapper trivialises template creation, and an authentication wrapper trivialises user sign-in and Google Data API access.</p>
+        <p>It's all liberally sprinkled with smart caching to keep your site fast and your GAE costs down.</p>
+        <p><a class="btn btn-primary btn-large" href="https://github.com/SoulAuctioneer/AppEngineBoilerplate">Learn more on Github &raquo;</a></p>
     </div>
 
-    <div class="span4 offset1 content-panel align-justify">
-        <h1>We're PajamaNinja</h1>
-        <p>
-            And we're seriously excited about Google Glass! Yes, seriously!
-        </p>
-        <p>
-            Besides YourShow, we're also hatching plans for some mind-blowing
-            Glassware built around wearable-computing mashups.
-        </p>
-        <p>
-            PajamaNinja is <a href="http://www.linkedin.com.tw/eldritch" target="_blank">Ash</a> and <a href="http://edrooth.com/" target="_blank">Ed</a>.
-            We're very interested in opportunities to collaborate, so...
-        </p>
-        <p class='spaced'>
-            <a class='biglink' href='mailto:ash@pajamaninja.com'>Send us an email</a>
-        </p>
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
     </div>
-</div>
+
 {% endblock %}

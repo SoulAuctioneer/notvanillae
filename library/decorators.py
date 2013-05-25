@@ -9,7 +9,7 @@ import settings
 import utils
 
 
-def send_response(method):
+def sends_response(method):
     def _send_response(request_handler, *args, **kwargs):
 
         # Always call method
@@ -37,7 +37,7 @@ def send_response(method):
 
         if is_redirect:
             # If redirecting, ensure the pjax url param is included to avoid the browser caching wrong response
-            return utils.pjaxify_response(request_handler.request, retval)
+            return utils.pjaxify_response(retval)
         else:
             # Write calling method's return value to response body if not a redirect
             return request_handler.response.out.write(retval)
@@ -45,7 +45,7 @@ def send_response(method):
     return _send_response
 
 
-def check_auth(method):
+def checks_auth(method):
     """ Verifies auth if specified in route config"""
 
     def _check_auth(request_handler, *args, **kwargs):
@@ -56,7 +56,7 @@ def check_auth(method):
 
             # Bail if auth sends back a redirect
             if type(retval) is webapp2.Response and retval.status_int == 302:
-                retval = utils.pjaxify_response(request_handler.request, retval)
+                retval = utils.pjaxify_response(retval)
                 return retval
 
         # All clear, call our decorated method
