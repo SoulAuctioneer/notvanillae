@@ -1,0 +1,29 @@
+{% if is_pjax %}
+    {% extends "base_pjax.html" %}
+{% else %}
+    {% extends "base.html" %}
+{% endif -%}
+
+{% set active_nav = "signin" %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+<div id="content-signin" class="row">
+    <div class="span5 content-panel">
+        <h1>Try YourShow on Glass</h1>
+        <p>
+            YourShow currently works with Google Slides and PowerPoint presentations in your <strong>Google Drive</strong>.
+        </p>
+        <p>
+            You'll need to let YourShow connect to your Google Drive. It's safe and only takes a moment.
+        </p>
+        <p class='spaced'>
+            <a class='biglink' href="{{ authorize_url }}">Connect your Google Drive</a>
+        </p>
+    </div>
+    <div class="span7 content-panel text-right">
+        <img src='/assets/img/flow.png' />
+    </div>
+</div>
+{% endblock %}

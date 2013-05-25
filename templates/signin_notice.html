@@ -1,0 +1,5 @@
+{% if nickname == None  %}
+    <a id="header-nav-menu-signin" href="{{ auth_url }}"{% if active_nav == 'signin' %} class="active"{% endif %}>Sign in<br/>with Google</a>
+{% else %}
+    <a href='{{ auth_url }}'>Sign out<br/>{{ nickname }}</a>
+{% endif %}

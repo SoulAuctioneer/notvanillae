@@ -1,0 +1,75 @@
+{% if is_pjax %}
+    {% extends "base_pjax.html" %}
+{% else %}
+    {% extends "base.html" %}
+{% endif -%}
+
+{% set active_nav = "about" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div id="content-about" class="row">
+    <div class="span7 content-panel align-justify">
+        <h1>About YourShow</h1>
+        <p>
+            YourShow is our first "Glassware" app.
+            We've got a working prototype,
+            and we're waiting not-so-patiently for our Mirror API access so we can crank this thing up!
+        </p>
+
+        <p>
+            Right now it's very basic, but we've got
+            plenty of time before the official Glass launch
+            to make it awesome.
+            What we like about YourShow is that it's genuinely useful
+            software and only possible because of this new platform.
+        </p>
+        <p>
+            Some features we're actively working on are:
+            <ul>
+                <li>Support for more popular presentation formats.</li>
+                <li>Translation of your slide notes, as subtitles on your presentation slides,
+                    and as audio streams that your audience can listen to via their smartphones,
+                    synchronized to your current slide.</li>
+            </ul>
+        </p>
+        <p>
+            The first release of the Glass Mirror API is quite limited,
+            although of course it'll get more powerful with time.
+            Some features we're aiming to deliver when they become possible are:
+            <ul>
+                <li>Automagically flipping slides, using voice recognition
+                    to know when you've read all your notes -- for a truly hands-free experience.</li>
+                <li>Using subtle head gestures and voice commands to control your slides.</li>
+                <li>Recording your presentation, including voice, slides and audience reactions,
+                    for sharing later or as a real-time webcast.</li>
+                <li>Real-time translation of your voice, as subtitles on your presentation slides
+                    and as audio streams that your audience can listen to via their smartphones. </li>
+                <li>More more more!</li>
+            </ul>
+        </p>
+        <p class='spaced'>
+            <a class='biglink' href='{{ urls.presentations }}'>Try the Demo</a> &nbsp; <em>No Glass? No problem! Use YourShow with phones and tablets</em>
+        </p>
+    </div>
+
+    <div class="span4 offset1 content-panel align-justify">
+        <h1>We're PajamaNinja</h1>
+        <p>
+            And we're seriously excited about Google Glass! Yes, seriously!
+        </p>
+        <p>
+            Besides YourShow, we're also hatching plans for some mind-blowing
+            Glassware built around wearable-computing mashups.
+        </p>
+        <p>
+            PajamaNinja is <a href="http://www.linkedin.com.tw/eldritch" target="_blank">Ash</a> and <a href="http://edrooth.com/" target="_blank">Ed</a>.
+            We're very interested in opportunities to collaborate, so...
+        </p>
+        <p class='spaced'>
+            <a class='biglink' href='mailto:ash@pajamaninja.com'>Send us an email</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
