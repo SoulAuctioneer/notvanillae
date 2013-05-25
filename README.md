@@ -3,6 +3,8 @@ AppEngineBoilerplate
 
 Cook up your new Google App Engine site fastah and bettah, with AppEngine Boilerplate.
 
+Check it: http://aeboilerplate.appspot.com/
+
 We mix up a delicious blend of the tastiest web treats: HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer for a fast and responsive front-end experience.
 
 On the back end, a jinja2 wrapper trivialises template creation, and an authentication wrapper trivialises
