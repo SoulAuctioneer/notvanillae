@@ -4,7 +4,7 @@ from library import utils
 
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
-app_title = 'Not Vanilla AEce'
+app_title = 'Not VanillAE'
 
 # URLs
 # TODO: Change this to reflect your local and production URLs

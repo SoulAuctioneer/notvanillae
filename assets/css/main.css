@@ -47,6 +47,7 @@
   line-height: 1.25;
 }
 .masthead a {
+  font-size: 14px;
   color: #fff;
   color: rgba(255,255,255,.5);
   -webkit-transition: all .2s ease-in-out;
