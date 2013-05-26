@@ -23,10 +23,7 @@ class RouteConfig:
 route_configs = [
     RouteConfig('intro', '/', is_default_redirect_after_signin=True, show_nav=True, nav_title='Intro'),
     RouteConfig('signin', '/signin', cachable=False, nav_title='Sign In'),
-    RouteConfig('signin_notice', '/signin_notice', cachable=False),
-    RouteConfig('blog', '/blog', handler='handlers.blog.Handler', show_nav=True, nav_title='Blog'),
-    RouteConfig('blog_post', '/blog/post/%s/%s', '/blog/post/<post_id>/<post_slug>', 'blog', 'handlers.blog.Handler'),
-    RouteConfig('blog_tagged', '/blog/tagged/%s', '/blog/tagged/<tag>', 'blog', 'blog', 'handlers.blog.Handler')
+    RouteConfig('signin_notice', '/signin_notice', cachable=False)
 ]
 
 
