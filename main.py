@@ -28,7 +28,7 @@ for code_path in settings.code_paths:
 from library import users
 
 # Initialize web app with routes and handlers and jazz hands
-app = webapp2.WSGIApplication(debug=not utils.is_local() and not settings.force_dev)
+app = webapp2.WSGIApplication(debug=utils.is_local() or settings.force_dev)
 for route_config in routes.route_configs:
     app.router.add(webapp2.Route(route_config.route_template, handler=route_config.handler, name=route_config.name))
 app.router.add(webapp2.Route(users.decorator.callback_path, handler=users.decorator.callback_handler()))
