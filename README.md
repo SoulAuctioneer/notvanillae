@@ -98,8 +98,7 @@ Customising Your App
 Author
 ------
 [Ash Eldritch](http://www.linkedin.com.tw/eldritch)
-
-PajamaNinja http://www.pajamaninja.com/
+@ PajamaNinja http://www.pajamaninja.com/
 
 
 Licenses
