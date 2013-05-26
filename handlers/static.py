@@ -11,5 +11,4 @@ class Handler(webapp2.RequestHandler):
     def get(self):
 
         # Write template
-        # TODO: This currently assumes route name is same as template name
-        return templater.write(self.request.route.name)
+        return templater.write()

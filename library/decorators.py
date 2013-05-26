@@ -6,6 +6,7 @@ import hashlib
 
 from library import users
 import settings
+import routes
 import utils
 
 
@@ -20,7 +21,7 @@ def sends_response(method):
         is_redirect = type(retval) is webapp2.Response and retval.status_int == 302
 
         # Browser cache control: set appropriate response headers
-        if settings.routes[request_handler.request.route.name].cachable and settings.cache.browser_lifetime is not None:
+        if routes.get_current().cachable and settings.cache.browser_lifetime is not None:
             # Ensure CDNs will cache static output
             headers['Cache-Control'] = 'public, max-age={max_age}'.format(max_age=settings.cache.browser_lifetime)
         else:
@@ -30,7 +31,7 @@ def sends_response(method):
             headers['Expires'] = '0'
 
         # Ensure http can call https
-        headers['Access-Control-Allow-Origin'] = settings.url_canonical
+        headers['Access-Control-Allow-Origin'] = settings.urls.canonical
 
         # Explicitly tell PJAX the url, to better handle redirects
         #headers['X-PJAX-URL'] = request_handler.request.url
@@ -51,7 +52,7 @@ def checks_auth(method):
     def _check_auth(request_handler, *args, **kwargs):
 
         # If auth is required, verify auth and bail if not
-        if settings.routes[request_handler.request.route.name].auth_required:
+        if routes.get_current().requires_auth:
             retval = users.verify_auth(request_handler)
 
             # Bail if auth sends back a redirect

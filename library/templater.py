@@ -3,8 +3,9 @@
 from google.appengine.api import memcache
 import jinja2
 
-import users
 import settings
+import routes
+import users
 import decorators
 import utils
 
@@ -17,19 +18,22 @@ jinja_environment = jinja2.Environment(
 )
 
 
-def cache_lifetime(template_name):
+def cache_lifetime(template_name=None):
 
-    return settings.cache.template_lifetime \
-        if template_name in settings.routes and settings.routes[template_name].cachable \
-        else None
+    # Resolve template if not specified
+    template_name = template_name or routes.get_current().jinja_template
+
+    return settings.cache.template_lifetime if routes.get(template_name).cachable else None
 
 
 @decorators.cached(lifetime=cache_lifetime)
-def write(template_name, template_values={}):
+def write(template_name=None, template_values={}):
+
+    # Resolve template if not specified
+    template_name = template_name or routes.get_current().jinja_template
 
     # Render the output
     template_values = add_standard_template_values(template_values)
-    template_values['base_template'] = 'base_pjax.html' if utils.is_pjax() else 'base.html'
     output = render(template_name, template_values)
 
     return output
@@ -43,7 +47,10 @@ def render(template_name, template_values):
 
 def add_standard_template_values(template_values):
 
-    # Grab standard template values
+    # Specify base template based on whether this is a pjax request
+    template_values['base_template'] = 'base_pjax.html' if utils.is_pjax_request() else 'base.html'
+
+    # Authentication information
     if users.is_logged_in():
         template_values['nickname'] = users.get_current_user().nickname()
         template_values['auth_url'] = users.create_logout_url()
@@ -53,17 +60,10 @@ def add_standard_template_values(template_values):
 
     # Make configuration settings available to templates
     template_values['settings'] = settings
-
-    # Grab URL constants
-    template_values['urls'] = {route_name: route.url for route_name, route in settings.routes.iteritems()}
-    template_values['urls']['canonical'] = settings.url_canonical
-    template_values['urls']['canonical_secure'] = settings.url_canonical_secure
-
-    # Get app title
-    template_values['app_title'] = settings.app_title
+    template_values['route_configs'] = routes.route_configs
 
     # Identify local versus deployed
-    template_values['is_local'] = settings.is_local
+    template_values['is_local'] = utils.is_local()
 
     return template_values
 

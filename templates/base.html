@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{% block title %}{% endblock %} - {{ settings.app_title }}</title>
+        <title>{{ title }} - {{ settings.app_title }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -48,7 +48,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="{{ urls.intro }}" data-pjax>
+                        <a class="brand" href="/" data-pjax>
                             {{ settings.app_title }}
                         </a>
                         <ul class="nav pull-right" id="main-menu-right">
@@ -56,12 +56,16 @@
                         </ul>
                         <div class="nav-collapse collapse">
                             <ul class="nav" id="main-menu-left">
-                                {% set navigation_bar = [
-                                    (urls.intro, 'intro', 'Intro'),
-                                    (urls.blog, 'blog', 'Blog')
-                                    ] -%}
-                                    {% for href, id, caption in navigation_bar %}
-                                        <li><a id="header-nav-menu-{{ id }}" href="{{ href|e }}"{% if id == active_nav %} class="active"{% endif %} data-pjax>{{ caption|e }}</a></li>
+                                {% for route_config in route_configs %}
+                                    {% if route_config.show_nav %}
+                                        <li><a
+                                            id="header-nav-menu-{{ route_config.name }}"
+                                            href="{{ route_config.href|e }}"
+                                            {% if route_config.name == active_nav %} class="active"{% endif %}
+                                            data-pjax>
+                                            {{ route_config.nav_title|e }}
+                                        </a></li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </div><!--/.nav-collapse -->
@@ -99,23 +103,23 @@
 
                             <li>
                                 <div class="hackernews-share-wrapper">
-                                    <a href="http://news.ycombinator.com/submitlink?u={{ urls.canonical|escape }}&t={{ settings.app_title|escape }}" class="socialite hackernews-share" data-title="{{ settings.app_title }}" data-url="{{ urls.canonical }}">
+                                    <a href="http://news.ycombinator.com/submitlink?u={{ settings.urls.canonical|escape }}&t={{ settings.app_title|escape }}" class="socialite hackernews-share" data-title="{{ settings.app_title }}" data-url="{{ settings.urls.canonical }}">
                                         <span class="vhidden">Hacker News</span>
                                     </a>
                                 </div>
                             </li>
                             <li>
-                                <a href="http://twitter.com/share" class="socialite twitter-share" data-text="{{ settings.app_title }}" data-url="{{ urls.canonical }}" data-count="none" rel="nofollow" target="_blank">
+                                <a href="http://twitter.com/share" class="socialite twitter-share" data-text="{{ settings.app_title }}" data-url="{{ settings.urls.canonical }}" data-count="none" rel="nofollow" target="_blank">
                                     <span class="vhidden">Tweet</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.facebook.com/sharer.php?u={{ urls.canonical|escape }}&amp;t={{ settings.app_title|escape }}" class="socialite facebook-like" data-href="{{ urls.canonical }}" data-send="false" data-layout="button_count" data-width="51" data-show-faces="false" rel="nofollow" target="_blank">
+                                <a href="http://www.facebook.com/sharer.php?u={{ settings.urls.canonical|escape }}&amp;t={{ settings.app_title|escape }}" class="socialite facebook-like" data-href="{{ settings.urls.canonical }}" data-send="false" data-layout="button_count" data-width="51" data-show-faces="false" rel="nofollow" target="_blank">
                                     <span class="vhidden">Share</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url={{ urls.canonical|escape }}" class="socialite googleplus-one" data-annotation="none" data-size="medium" data-href="{{ urls.canonical|escape }}" rel="nofollow" target="_blank">
+                                <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url={{ settings.urls.canonical|escape }}" class="socialite googleplus-one" data-annotation="none" data-size="medium" data-href="{{ settings.urls.canonical|escape }}" rel="nofollow" target="_blank">
                                     <span class="vhidden">+1</span>
                                 </a>
                             </li>
@@ -131,7 +135,7 @@
         <!-- Scripts -->
         <script>
             active_nav = '{{ active_nav }}';
-            url_canonical_secure = '{{ urls.canonical_secure }}'
+            url_canonical_secure = '{{ settings.urls.canonical_secure }}'
         </script>
 
         <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>

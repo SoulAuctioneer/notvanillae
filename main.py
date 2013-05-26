@@ -18,6 +18,8 @@
 import sys
 import webapp2
 import settings
+import routes
+from library import utils
 
 # Insert local directories into path
 for code_path in settings.code_paths:
@@ -26,7 +28,7 @@ for code_path in settings.code_paths:
 from library import users
 
 # Initialize web app with routes and handlers and jazz hands
-app = webapp2.WSGIApplication(debug=not settings.is_local and not settings.force_dev)
-for name, route in settings.routes.iteritems():
-    app.router.add(webapp2.Route(route.template, handler=route.handler, name=name))
+app = webapp2.WSGIApplication(debug=not utils.is_local() and not settings.force_dev)
+for route_config in routes.route_configs:
+    app.router.add(webapp2.Route(route_config.route_template, handler=route_config.handler, name=route_config.name))
 app.router.add(webapp2.Route(users.decorator.callback_path, handler=users.decorator.callback_handler()))
