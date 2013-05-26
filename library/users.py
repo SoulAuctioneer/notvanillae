@@ -1,6 +1,8 @@
 from google.appengine.api import users
 import oauth2client.appengine
+
 import settings
+import routes
 
 
 class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
@@ -18,8 +20,7 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
         or if they haven't already granted access for this application.
 
         Args:
-          method: callable, to be decorated method of a webapp.RequestHandler
-            instance.
+          method: callable, to be decorated method of a webapp.RequestHandler instance.
         """
 
         def check_oauth(request_handler, *args, **kwargs):
@@ -28,7 +29,7 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
                 self._display_error_message(request_handler)
                 return
 
-            local_signin_url = settings.url_canonical_secure + settings.routes.signin.url + '?origin=' + request_handler.request.path
+            local_signin_url = settings.urls.canonical_secure + routes.get('signin').url + '?origin=' + request_handler.request.path
 
             # Ensure user is logged in and redirect if not
             user = users.get_current_user()
@@ -78,7 +79,7 @@ def create_logout_url():
 
 
 def create_login_url(redirect=None):
-    return users.create_login_url(redirect or settings.routes.signin.url)
+    return users.create_login_url(redirect or routes.get('signin').url)
 
 @decorator.oauth_required
 def verify_auth(request_handler):

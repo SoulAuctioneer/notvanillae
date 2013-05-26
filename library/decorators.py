@@ -11,6 +11,7 @@ import utils
 
 
 def sends_response(method):
+
     def _send_response(request_handler, *args, **kwargs):
 
         # Always call method
@@ -32,9 +33,6 @@ def sends_response(method):
 
         # Ensure http can call https
         headers['Access-Control-Allow-Origin'] = settings.urls.canonical
-
-        # Explicitly tell PJAX the url, to better handle redirects
-        #headers['X-PJAX-URL'] = request_handler.request.url
 
         if is_redirect:
             # If redirecting, ensure the pjax url param is included to avoid the browser caching wrong response
@@ -67,7 +65,9 @@ def checks_auth(method):
 
 
 def cached(lifetime=settings.cache.default_lifetime, extra_key=None):
+
     def _cached(func):
+
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
 

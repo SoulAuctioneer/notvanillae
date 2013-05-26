@@ -1,11 +1,16 @@
-AppEngineBoilerplate
+Not Vanilla AEce
 ====================
 
-Cook up your new Google App Engine site fastah and bettah, with AppEngine Boilerplate.
+The finest web ingredients, blended into a scrumptious boilerplate for Google App Engine.
 
-We mix up a delicious blend of the tastiest web treats: HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer for a fast and responsive front-end experience.
+Responsive Client
+-----------------
+HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
 
-On the back end, a jinja2 wrapper trivialises template creation, and an authentication wrapper trivialises
-user sign-in and Google Data API access.
+Simpler Server
+--------------
+A home-made special sauce of decorators and wrappers for Jinja2, OAuth and Google Data API simplifies templating, routing and user sign in.
 
-It's all liberally sprinkled with smart caching to keep your site fast and your GAE costs down.
+Fast
+----
+Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.
