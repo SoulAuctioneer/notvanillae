@@ -32,7 +32,7 @@ oauth = DotDict({
 
 # Google Analytics
 # TODO: Update these to reflect your own Google Analytics identifiers
-ga = DotDict({
+google_analytics = DotDict({
     'enabled': not utils.is_local(),
     'id': '',
     'domain': ''
