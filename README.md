@@ -7,7 +7,7 @@ __Responsive Client__
 HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
 
 __Simpler Server__  
-Webapp2, Jinja2 and Google Service APIs on Python 2.7, drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.
+Webapp2, Jinja2 and Google Service APIs on Python 2.7, all drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.
 
 __Fast__  
 Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.
