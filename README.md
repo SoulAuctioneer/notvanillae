@@ -7,7 +7,7 @@ __Responsive Client__
 HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
 
 __Simpler Server__  
-A home-made special sauce of decorators and wrappers for Jinja2, OAuth and Google Data API simplifies templating, routing and user sign in.
+Webapp2, Jinja2 and Google Service APIs on Python 2.7, drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.
 
 __Fast__  
 Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.
@@ -21,6 +21,7 @@ Who's This Not For?
 -------------------
 - You're not using Google App Engine
 - You're building a large app that would benefit from a full MVC framework such as Django
+- You need a Content Management System
 - You don't want some random lunatic deciding what is the 'best' tech for your app
 
 
