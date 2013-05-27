@@ -22,6 +22,7 @@ class RouteConfig:
 # Routes
 route_configs = [
     RouteConfig('intro', '/', is_default_redirect_after_signin=True, show_nav=True, nav_title='Intro'),
+    RouteConfig('docs', '/docs', show_nav=True, nav_title='Docs'),
     RouteConfig('signin', '/signin', cachable=False, nav_title='Sign In'),
     RouteConfig('signin_notice', '/signin_notice', cachable=False)
 ]

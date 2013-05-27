@@ -1,0 +1,181 @@
+{% extends base_template %}
+
+{% set active_nav = "docs" %}
+{% set title = "Docs" %}
+
+{% block content %}
+
+    <!-- Your page content. Usually you would want a... -->
+    <div class="row">
+
+<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+    <h1>
+
+        <h2>
+            <a name="whos-this-for" class="anchor" href="#whos-this-for"><span class="octicon octicon-link"></span></a>Who's
+            This For?</h2>
+
+        <p>Anyone who wants a rapid setup on Google App Engine, using pre-built starter code that merges high-quality
+            boilerplate, frameworks and clever stuff from the community.</p>
+
+        <h2>
+            <a name="whos-this-not-for" class="anchor" href="#whos-this-not-for"><span
+                    class="octicon octicon-link"></span></a>Who's This Not For?</h2>
+
+        <ul>
+            <li>You're not using Google App Engine</li>
+            <li>You're building a large app that would benefit from a full MVC framework such as Django</li>
+            <li>You don't want some random lunatic deciding what is the 'best' tech for your app</li>
+        </ul>
+        <h2>
+            <a name="whats-in-it" class="anchor" href="#whats-in-it"><span class="octicon octicon-link"></span></a>What's
+            In It?</h2>
+
+        <p>Although VanillAE incorporates a lot of great stuff, I haven't just thrown in everything and the kitchen
+            sink.
+            Each component performs a specific useful function that you <em>probably</em> want, and does it better than
+            you (easily) could without it.
+            Each component is used in the starter site bundled with VanillAE.
+            If for some reason you don't want a particular component, it's easy to remove.</p>
+
+        <ul>
+            <li><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></li>
+            <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+            <li><a href="http://modernizr.com">Modernizr</a></li>
+            <li><a href="http://fontawesome.io/%22">Font Awesome</a></li>
+            <li><a href="http://pjax.heroku.com/">PJAX.js</a></li>
+            <li><a href="http://socialitejs.com/">socialite.js</a></li>
+            <li><a href="http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html">Sticky Footer</a></li>
+            <li><a href="http://jinja.pocoo.org/docs/">Jinja2</a></li>
+            <li><a href="https://developers.google.com/api-client-library/python/start/get_started">Google APIs</a></li>
+            <li><a href="https://developers.google.com/appengine/docs/python/users/">Google Users API</a></li>
+        </ul>
+        <h2>
+            <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation
+        </h2>
+
+        <h4>
+            <a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites
+        </h4>
+
+        <ul>
+            <li>
+                <a href="http://www.python.org/getit/releases/2.7/">Python 2.7</a>.
+                Mac OS X 10.7 Lion users already have Python 2.7 installed.
+            </li>
+            <li>
+                <a href="https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python">The App
+                    Engine SDK for Python</a>.
+                Run the installer if appropriate for your platform, or extract the zip file in a convenient place.
+            </li>
+        </ul>
+        <h4>
+            <a name="creating-a-google-app-engine-instance" class="anchor"
+               href="#creating-a-google-app-engine-instance"><span class="octicon octicon-link"></span></a>Creating a
+            Google App Engine instance</h4>
+
+        <p>You'll need to host your app on an instance of Google App Engine:</p>
+
+        <ol>
+            <li>Go to <a href="http://appengine.google.com">http://appengine.google.com</a>.</li>
+            <li>Click Create Application and create a public Google App Engine instance hosted on appspot.com.</li>
+            <li>Give the application an Application Identifier and select Google Accounts users. You'll need the
+                application identifier later to configure Not VanillAE.
+            </li>
+        </ol>
+        <h4>
+            <a name="getting-the-code" class="anchor" href="#getting-the-code"><span
+                    class="octicon octicon-link"></span></a>Getting the code</h4>
+
+        <ul>
+            <li>
+                <strong>The proper way</strong>: Clone (or fork and clone) this repository
+                <code>git clone https://github.com/SoulAuctioneer/NotVanillAE.git</code>
+            </li>
+            <li>
+                <strong>The easy way</strong>: <a
+                    href="https://github.com/SoulAuctioneer/NotVanillAE/archive/master.zip">Download the zip</a> and
+                extract it.
+            </li>
+        </ul>
+        <h4>
+            <a name="configuring-the-app" class="anchor" href="#configuring-the-app"><span
+                    class="octicon octicon-link"></span></a>Configuring the app</h4>
+
+        <ul>
+            <li>Edit <code>app.yaml</code> and change the <code>application</code> value to the Application Identifier
+                you specified on appspot.com.
+            </li>
+            <li>Edit <code>settings.py</code> and change <code>app_title</code>, <code>urls</code>, <code>oauth</code>
+                and <code>google_analytics</code>.
+            </li>
+        </ul>
+        <h4>
+            <a name="deploying-the-app" class="anchor" href="#deploying-the-app"><span
+                    class="octicon octicon-link"></span></a>Deploying the app</h4>
+
+        <ul>
+            <li>Run the following command from a prompt: <code>appcfg.py update notvanillae/</code> or click Deploy in
+                Google App Engine Launcher.
+            </li>
+            <li>Enter your Google username and password at the prompts.</li>
+        </ul>
+        <p>You can now see your application running on App Engine. If you set up a free appspot.com domain name, the URL
+            for your website begins with your application ID:</p>
+
+        <p><a href="http://your-app-id.appspot.com">http://your-app-id.appspot.com</a></p>
+
+        <p>Congratulations!</p>
+
+        <h2>
+            <a name="customising-your-app" class="anchor" href="#customising-your-app"><span
+                    class="octicon octicon-link"></span></a>Customising Your App</h2>
+
+        <ul>
+            <li>Add <strong>templates</strong> to the <code>templates</code> directory, using
+                <code>_template.html</code> for an example.
+            </li>
+            <li>Configure <strong>routes</strong> in <code>routes.py</code>, using the examples to get started.</li>
+            <li>Add <strong>handlers</strong> for non-static routes.
+                Generally you will want to <strong>decorate</strong> your handlers with
+                <code>@decorators.checks_auth</code> and <code>@decorators.sends_response</code>
+            </li>
+            <li>
+                <strong>PJAX</strong> any internal links by adding a <code>data-pjax</code> attribute to your link tags,
+                i.e. <code>&lt;a href="..." data-pjax&gt;...&lt;/a&gt;</code>
+            </li>
+            <li>Add custom <strong>CSS</strong> to <code>/assets/css/main.css</code>
+            </li>
+            <li>Add custom <strong>JavaScript</strong> to <code>/assets/js/main.js</code>
+            </li>
+        </ul>
+        <h2>
+            <a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+        <p><a href="http://www.linkedin.com.tw/eldritch">Ash Eldritch</a>
+            @ PajamaNinja <a href="http://www.pajamaninja.com/">http://www.pajamaninja.com/</a></p>
+
+        <h2>
+            <a name="licenses" class="anchor" href="#licenses"><span class="octicon octicon-link"></span></a>Licenses
+        </h2>
+
+        <p>Copyright (c) 2013 Ash Eldritch, PajamaNinja / <a href="http://www.pajamaninja.com">www.pajamaninja.com</a>
+        </p>
+
+        <p>Licensed under the Apache License, Version 2.0 (the "License"); you may not
+            use this file except in compliance with the License. You may obtain a copy of
+            the License at</p>
+
+        <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+        <p>Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+            WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+            License for the specific language governing permissions and limitations under
+            the License</p>
+
+</article>
+
+</div>
+
+{% endblock %}
