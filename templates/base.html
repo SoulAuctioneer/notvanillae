@@ -60,7 +60,7 @@
                                     {% if route_config.show_nav %}
                                         <li><a
                                             id="header-nav-menu-{{ route_config.name }}"
-                                            href="{{ route_config.href|e }}"
+                                            href="{{ route_config.url|e }}"
                                             {% if route_config.name == active_nav %} class="active"{% endif %}
                                             data-pjax>
                                             {{ route_config.nav_title|e }}
