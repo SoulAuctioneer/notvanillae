@@ -10,7 +10,7 @@ class RouteConfig:
         self.name = name
         self.url = url
         self.route_template = route_template or url
-        self.jinja_template = jinja_template or name
+        self.jinja_template = jinja_template or name + '.html'
         self.handler = handler
         self.cachable = cachable
         self.requires_auth = requires_auth
@@ -28,17 +28,14 @@ route_configs = [
 ]
 
 
-def get(name):
+def get(name=None):
+
+    name = name or utils.get_request().route.name
     for route_config in route_configs:
         if route_config.name == name:
             return route_config
 
     return None
-
-
-def get_current():
-
-    return get(utils.get_request().route.name)
 
 
 def get_default_redirect_after_signin():

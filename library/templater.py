@@ -18,30 +18,40 @@ jinja_environment = jinja2.Environment(
 )
 
 
-def cache_lifetime(template_name=None):
+def cache_lifetime(routeconfig_name=None):
 
-    # Resolve template if not specified
-    template_name = template_name or routes.get_current().jinja_template
-
-    return settings.cache.template_lifetime if routes.get(template_name).cachable else None
+    return settings.cache.template_lifetime if routes.get(routeconfig_name).cachable else None
 
 
-@decorators.cached(lifetime=cache_lifetime)
-def write(template_name=None, template_values={}):
+def template_cachekey(routeconfig_name=None):
+    """
+    Generates a key that is unique to the given or current RouteConfig and whether the request is a PJAX request
+    :param routeconfig_name: Name of RouteConfig. Defaults to the current request's RouteConfig
+    :type routeconfig_name: str
+    :return: The template filename for the given template name.
+    """
+    return (routeconfig_name or routes.get().name) + '-' + str(utils.is_pjax_request())
 
-    # Resolve template if not specified
-    template_name = template_name or routes.get_current().jinja_template
+
+@decorators.cached(lifetime=cache_lifetime, extra_key=template_cachekey)
+def write(routeconfig_name=None, template_values={}):
+    """
+    Renders the template specified in the named RouteConfig, or the current route's RouteConfig if none is given
+    :param routeconfig_name: Name of the RouteConfig containing the template name. Defaults to the current request's RouteConfig
+    :param template_values: Dictionary of values made available to the template
+    :return: Output of the rendered template
+    """
 
     # Render the output
     template_values = add_standard_template_values(template_values)
-    output = render(template_name, template_values)
+    output = render(routes.get(routeconfig_name).jinja_template, template_values)
 
     return output
 
 
-def render(template_name, template_values):
+def render(template_filename, template_values):
 
-    template = jinja_environment.get_template(template_name + '.html')
+    template = jinja_environment.get_template(template_filename)
     return template.render(template_values)
 
 
@@ -51,6 +61,7 @@ def add_standard_template_values(template_values):
     template_values['base_template'] = 'base_pjax.html' if utils.is_pjax_request() else 'base.html'
 
     # Authentication information
+    # NOTE: This may fall foul of template output caching if used by routes that allow caching.
     if users.is_logged_in():
         template_values['nickname'] = users.get_current_user().nickname()
         template_values['auth_url'] = users.create_logout_url()

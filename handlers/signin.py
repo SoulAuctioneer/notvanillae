@@ -16,7 +16,7 @@ class Handler(webapp2.RequestHandler):
             template_values = {
                 'authorize_url': users.create_login_url(self.request.get('origin'))
             }
-            return templater.write('signin', template_values)
+            return templater.write(template_values=template_values)
 
         else:
 
