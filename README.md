@@ -88,8 +88,8 @@ Customising Your App
 
 - Add __templates__ to the `templates` directory, using `_template.html` for an example.
 - Configure __routes__ in `routes.py`, using the examples to get started.
-- Add __handlers__ for non-static routes. 
-  Generally you will want to __decorate__ your handlers with `@decorators.checks_auth` and `@decorators.sends_response`
+- Add __handlers__ for non-static routes.
+- __Decorate__ your handler methods with `@decorators.checks_auth` and/or `@decorators.sends_response`. A `@cached` decorator is also available.
 - __PJAX__ any internal links by adding a `data-pjax` attribute to your link tags, i.e. `<a href="..." data-pjax>...</a>`
 - Add custom __CSS__ to `/assets/css/main.css`
 - Add custom __JavaScript__ to `/assets/js/main.js`
