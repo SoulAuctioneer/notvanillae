@@ -10,7 +10,7 @@ $( document ).ready(function() {
 
     $(document).on('pjax:send', function() {
         $('#content').fadeTo(100, 0.5);
-        $('#main-menu li a').removeClass('active');
+        $('#primary_nav').find('li a').removeClass('active');
         $('#spinner').css('display','block').animate({'opacity':1},100,'swing');
     });
 

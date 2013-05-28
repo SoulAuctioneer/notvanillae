@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import webapp2
-from library import templater, decorators
+from library import templater, decorators, utils
 
 
 class Handler(webapp2.RequestHandler):
@@ -10,5 +10,5 @@ class Handler(webapp2.RequestHandler):
     @decorators.sends_response
     def get(self):
 
-        # Write template
+        # Write template configured for current route
         return templater.write()
