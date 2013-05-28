@@ -14,14 +14,13 @@ Client and server are liberally sprinkled with smart caching treats to keep your
 
 Who's This For?
 ---------------
-Anyone who wants a rapid setup on Google App Engine, using pre-built starter code that merges high-quality boilerplate, frameworks and clever stuff from the community.
+Not VanillAE is great for anyone who wants a rapid setup on Google App Engine, 
+using pre-built starter code that merges high-quality boilerplate, frameworks and clever stuff from the community.
 
-
-Who's This Not For?
--------------------
+This isn't a good fit if:
 - You're not using Google App Engine
 - You're building a large app that would benefit from a full MVC framework such as Django
-- You need a Content Management System
+- You need a Content Management System (take a look at Django-cms + Google Cloud SQL, or Vosao for Java on GAE)
 - You don't want some random lunatic deciding what is the 'best' tech for your app
 
 
@@ -96,25 +95,23 @@ Customising Your App
 - Add custom __JavaScript__ to `/assets/js/main.js`
 
 
-Author
+To Do
+-----
+
+- Make the demo app http://notvanillae.appspot.com prettier
+- Integrate a working sign in example
+- Comment all code
+- Integrate ANT build script for minifying and concatenating CSS and Javascript.
+- Ensure all JS resources are loaded asynchronously.
+- Score >95% on Google Page Speed.
+- Determine a dependency management strategy.
+- Integrate option for user authentication via OpenID.
+- Identify and review other similar boilerplate projects for good ideas to incorporate.
+- Create more comprehensive customization documentation.
+
+
+Meta
 ------
-[Ash Eldritch](http://www.linkedin.com.tw/eldritch)
-@ PajamaNinja http://www.pajamaninja.com/
+Author: [Ash Eldritch](http://www.linkedin.com.tw/eldritch) @ PajamaNinja http://www.pajamaninja.com/
 
-
-Licenses
---------
-
-Copyright (c) 2013 Ash Eldritch, PajamaNinja / www.pajamaninja.com
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License. You may obtain a copy of
-the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations under
-the License
+License: Distributed under the [MIT license](http://opensource.org/licenses/MIT). All dependencies have their own licenses.
