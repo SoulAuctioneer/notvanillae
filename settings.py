@@ -39,7 +39,7 @@ google_analytics = DotDict({
 })
 
 # Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
-force_dev = False
+force_dev = True#False
 
 # Paths to templates and code. Add any new directories to code_paths
 path_base = os.path.dirname(os.path.abspath(__file__))
