@@ -20,6 +20,7 @@ class RouteConfig:
 
 
 # Routes
+# TODO: Add your own routes here. You should leave signin and signin_notice if you want user auth
 route_configs = [
     RouteConfig('intro', '/', is_default_redirect_after_signin=True, show_nav=True, nav_title='Intro'),
     RouteConfig('docs', '/docs', show_nav=True, nav_title='Docs'),

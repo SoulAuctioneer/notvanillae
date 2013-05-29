@@ -51,11 +51,11 @@
                         <a class="brand" href="/" data-pjax>
                             {{ settings.app_title }}
                         </a>
-                        <ul class="nav pull-right" id="main-menu-right">
+                        <ul class="nav pull-right">
                             <li id="signin_notice" style="opacity:0;">&nbsp;</li>
                         </ul>
                         <div class="nav-collapse collapse">
-                            <ul class="nav" id="main-menu-left">
+                            <ul class="nav">
                                 {% for route_config in route_configs %}
                                     {% if route_config.show_nav %}
                                         <li><a
@@ -67,6 +67,7 @@
                                         </a></li>
                                     {% endif %}
                                 {% endfor %}
+                                <li><a id="header-nav-menu-github" href="https://github.com/SoulAuctioneer/notvanillae"><i class="icon-github" style="font-size:18px;vertical-align:middle;"></i></a></li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div>

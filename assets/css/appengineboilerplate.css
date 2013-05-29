@@ -13,7 +13,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        margin-left: 15px;
+        margin-left: -32px;
         width: 64px;
         height: 39px;
         background: url(../img/spinner-dark.gif) transparent;

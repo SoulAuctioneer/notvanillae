@@ -75,3 +75,19 @@
   font-weight: 200;
   color: #fff; /* redeclare to override the `.masthead a` */
 }
+.masthead.skinny {
+    padding: 10px;
+}
+h3 {
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: 30px;
+    border-bottom: solid 1px #ddd;
+    letter-spacing: 1px;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 200;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
