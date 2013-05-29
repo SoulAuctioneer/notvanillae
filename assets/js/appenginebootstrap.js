@@ -9,7 +9,7 @@ $( document ).ready(function() {
     });
 
     $(document).on('pjax:send', function() {
-        $('#content').fadeTo(100, 0.5);
+        $('#content').fadeTo(0, 0.4);
         $('#primary_nav').find('li a').removeClass('active');
         $('#spinner').css('display','block').animate({'opacity':1},100,'swing');
     });
