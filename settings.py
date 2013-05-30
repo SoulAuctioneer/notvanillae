@@ -1,6 +1,7 @@
 import os
 from library.dotdict import DotDict
 from library import utils
+from library.route_config import RouteConfig
 
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
@@ -16,8 +17,8 @@ urls = DotDict({
 # Google Data API OAuth Credentials
 # TODO: Update these to reflect your own scope requirements and credentials at https://code.google.com/apis/console/
 oauth = DotDict({
-    'client_id': '909315780380.apps.googleusercontent.com',
-    'client_secret': 'euQh7F-17Y0mc9mom8NJFheh',
+    'client_id': '909315780380-4srs376b72kso2uui8u6qps8joatm0mg.apps.googleusercontent.com',
+    'client_secret': 'Ko5HzoC4_3z9EW8-9VAK4o4z',
     'scope': [
         #'https://www.googleapis.com/auth/drive.readonly',
         #'https://www.googleapis.com/auth/drive',
@@ -39,7 +40,7 @@ google_analytics = DotDict({
 })
 
 # Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
-force_dev = True#False
+force_dev = False
 
 # Paths to templates and code. Add any new directories to code_paths
 path_base = os.path.dirname(os.path.abspath(__file__))

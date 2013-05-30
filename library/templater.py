@@ -20,7 +20,7 @@ jinja_environment = jinja2.Environment(
 
 def cache_lifetime(routeconfig_name=None):
 
-    return settings.cache.template_lifetime if routes.get(routeconfig_name).cachable else None
+    return settings.cache.template_lifetime if routes.configs.get(routeconfig_name).cachable else None
 
 
 def template_cachekey(routeconfig_name=None):
@@ -30,7 +30,7 @@ def template_cachekey(routeconfig_name=None):
     :type routeconfig_name: str
     :return: The template filename for the given template name.
     """
-    return (routeconfig_name or routes.get().name) + '-' + str(utils.is_pjax_request())
+    return (routeconfig_name or routes.configs.get().name) + '-' + str(utils.is_pjax_request())
 
 
 @decorators.cached(lifetime=cache_lifetime, extra_key=template_cachekey)
@@ -44,7 +44,7 @@ def write(routeconfig_name=None, template_values={}):
 
     # Render the output
     template_values = add_standard_template_values(template_values)
-    output = render(routes.get(routeconfig_name).jinja_template, template_values)
+    output = render(routes.configs.get(routeconfig_name).jinja_template, template_values)
 
     return output
 
@@ -71,14 +71,14 @@ def add_standard_template_values(template_values):
 
     # Make configuration settings available to templates
     template_values['settings'] = settings
-    template_values['route_configs'] = routes.route_configs
+    template_values['route_configs'] = routes.configs
 
     # Identify local versus deployed
     template_values['is_local'] = utils.is_local()
 
     # Set defaults for page title and active nav
-    template_values['title'] = routes.get().nav_title
-    template_values['active_nav'] = routes.get().name
+    template_values['title'] = routes.configs.get().nav_title
+    template_values['active_nav'] = routes.configs.get().name
 
     return template_values
 

@@ -23,7 +23,7 @@ def create_google_signout_url():
 
 
 def create_google_signin_url(redirect=None):
-    return users.create_login_url(redirect or routes.get_default_redirect_after_signin().url)
+    return users.create_login_url(redirect or routes.configs.get_default_redirect_after_signin().url)
 
 
 class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
@@ -51,13 +51,13 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
                 return
 
             origin_url = request_handler.request.get('origin') or request_handler.request.path
-            local_authorize_url = utils.add_url_params(settings.urls.canonical_secure + routes.get('authorize').url, {'origin': origin_url})
+            local_authorize_url = utils.add_url_params(settings.urls.canonical_secure + routes.configs.get('authorize').url, {'origin': origin_url})
 
             # Ensure user is logged in and redirect if not
             user = users.get_current_user()
             # Don't use @login_decorator as this could be used in a POST request.
             if not user:
-                signin_url = utils.add_url_params(routes.get('signin').url, {'origin': origin_url})
+                signin_url = utils.add_url_params(routes.configs.get('signin').url, {'origin': origin_url})
                 return request_handler.redirect(signin_url)
 
             self._create_flow(request_handler)

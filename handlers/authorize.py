@@ -13,7 +13,7 @@ class Handler(webapp2.RequestHandler):
     def get(self):
 
         if users.oauth_decorator.has_credentials():
-            authorized_url = self.request.get('origin') or routes.get_default_redirect_after_signin().url
+            authorized_url = self.request.get('origin') or routes.configs.get_default_redirect_after_signin().url
             return self.redirect(authorized_url)
         else:
             template_values = {

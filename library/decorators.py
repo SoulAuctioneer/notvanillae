@@ -22,7 +22,7 @@ def sends_response(method):
         is_redirect = type(retval) is webapp2.Response and retval.status_int == 302
 
         # Browser cache control: set appropriate response headers
-        if routes.get().cachable and settings.cache.browser_lifetime is not None:
+        if routes.configs.get().cachable and settings.cache.browser_lifetime is not None:
             # Ensure CDNs will cache static output
             headers['Cache-Control'] = 'public, max-age={max_age}'.format(max_age=settings.cache.browser_lifetime)
         else:
@@ -54,7 +54,7 @@ def checks_signin(method):
     def _check_signin(request_handler, *args, **kwargs):
 
        # If signin is required, verify signin and bail if not
-        if routes.get().requires_signin and not users.is_signed_in():
+        if routes.configs.get().requires_signin and not users.is_signed_in():
             return request_handler.redirect('/signin?origin=' + request_handler.request.path)
 
         # All clear, call our decorated method
@@ -69,7 +69,7 @@ def checks_oauth(method):
     def _check_oauth(request_handler, *args, **kwargs):
 
         # If auth is required and scope is configured, verify auth and bail if not
-        if routes.get().requires_oauth:
+        if routes.configs.get().requires_oauth:
             retval = users.verify_oauth(request_handler)
 
             # Bail if auth sends back a redirect
