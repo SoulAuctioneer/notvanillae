@@ -6,7 +6,8 @@ from library import templater, decorators, utils
 
 class Handler(webapp2.RequestHandler):
 
-    @decorators.checks_auth
+    @decorators.checks_signin
+    @decorators.checks_oauth
     @decorators.sends_response
     def get(self):
 

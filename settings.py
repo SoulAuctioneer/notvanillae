@@ -26,7 +26,7 @@ oauth = DotDict({
         #'https://www.googleapis.com/auth/drive.file',
         #'https://www.googleapis.com/auth/drive.scripts',
         #'https://www.googleapis.com/auth/userinfo.profile',
-        #'https://www.googleapis.com/auth/glass.timeline ',
+        'https://www.googleapis.com/auth/glass.timeline ',
     ]
 })
 

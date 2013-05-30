@@ -1,0 +1,18 @@
+{% extends base_template %}
+
+{% block content %}
+
+    <div class="hero-unit masthead skinny">
+        <h1>Sign in</h1>
+        <p>
+            We need access to some information in your Google account.
+        </p>
+        <p>
+            You'll be sent to Google to learn more and grant access. It's secure and fast.
+        </p>
+        <p class='spaced'>
+            <a class='btn btn-primary btn-large' href="{{ authorize_url }}"><i class="icon-google-plus"></i> Take me there</a>
+        </p>
+    </div>
+
+{% endblock %}

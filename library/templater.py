@@ -62,12 +62,12 @@ def add_standard_template_values(template_values):
 
     # Authentication information
     # NOTE: This may fall foul of template output caching if used by routes that allow caching.
-    if users.is_logged_in():
+    if users.is_signed_in():
         template_values['nickname'] = users.get_current_user().nickname()
-        template_values['auth_url'] = users.create_logout_url()
+        template_values['auth_url'] = users.create_google_signout_url()
     else:
         template_values['nickname'] = None
-        template_values['auth_url'] = users.create_login_url()
+        template_values['auth_url'] = users.create_google_signin_url()
 
     # Make configuration settings available to templates
     template_values['settings'] = settings
@@ -75,6 +75,10 @@ def add_standard_template_values(template_values):
 
     # Identify local versus deployed
     template_values['is_local'] = utils.is_local()
+
+    # Set defaults for page title and active nav
+    template_values['title'] = routes.get().nav_title
+    template_values['active_nav'] = routes.get().name
 
     return template_values
 

@@ -44,14 +44,33 @@ def sends_response(method):
     return _send_response
 
 
-def checks_auth(method):
-    """ Verifies auth if specified in route config"""
+def checks_signin(method):
+    """
+    Verifies that the user is signed in if required in route config
+    :param method: Decorated method
+    :return: Result of executing decorated method, or redirect if not signed in
+    """
 
-    def _check_auth(request_handler, *args, **kwargs):
+    def _check_signin(request_handler, *args, **kwargs):
 
-        # If auth is required, verify auth and bail if not
-        if routes.get().requires_auth:
-            retval = users.verify_auth(request_handler)
+       # If signin is required, verify signin and bail if not
+        if routes.get().requires_signin and not users.is_signed_in():
+            return request_handler.redirect('/signin?origin=' + request_handler.request.path)
+
+        # All clear, call our decorated method
+        return method(request_handler, *args, **kwargs)
+
+    return _check_signin
+
+
+def checks_oauth(method):
+    """ Verifies oauth if required in route config"""
+
+    def _check_oauth(request_handler, *args, **kwargs):
+
+        # If auth is required and scope is configured, verify auth and bail if not
+        if routes.get().requires_oauth:
+            retval = users.verify_oauth(request_handler)
 
             # Bail if auth sends back a redirect
             if type(retval) is webapp2.Response and retval.status_int == 302:
@@ -61,7 +80,7 @@ def checks_auth(method):
         # All clear, call our decorated method
         return method(request_handler, *args, **kwargs)
 
-    return _check_auth
+    return _check_oauth
 
 
 def cached(lifetime=settings.cache.default_lifetime, extra_key=None):

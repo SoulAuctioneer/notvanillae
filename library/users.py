@@ -3,6 +3,27 @@ import oauth2client.appengine
 
 import settings
 import routes
+from library import utils
+
+
+def get_current_user():
+    return users.get_current_user()
+
+
+def is_signed_in():
+    user = users.get_current_user()
+    if user:
+        return True
+    else:
+        return False
+
+
+def create_google_signout_url():
+    return users.create_logout_url('/')
+
+
+def create_google_signin_url(redirect=None):
+    return users.create_login_url(redirect or routes.get_default_redirect_after_signin().url)
 
 
 class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
@@ -29,13 +50,15 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
                 self._display_error_message(request_handler)
                 return
 
-            local_signin_url = settings.urls.canonical_secure + routes.get('signin').url + '?origin=' + request_handler.request.path
+            origin_url = request_handler.request.get('origin') or request_handler.request.path
+            local_authorize_url = utils.add_url_params(settings.urls.canonical_secure + routes.get('authorize').url, {'origin': origin_url})
 
             # Ensure user is logged in and redirect if not
             user = users.get_current_user()
             # Don't use @login_decorator as this could be used in a POST request.
             if not user:
-                return request_handler.redirect(local_signin_url)
+                signin_url = utils.add_url_params(routes.get('signin').url, {'origin': origin_url})
+                return request_handler.redirect(signin_url)
 
             self._create_flow(request_handler)
 
@@ -45,7 +68,7 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
                 oauth2client.appengine.CredentialsModel, user.user_id(), 'credentials').get()
 
             if not self.has_credentials():
-                return request_handler.redirect(local_signin_url)
+                return request_handler.redirect(local_authorize_url)
 
             try:
                 return method(request_handler, *args, **kwargs)
@@ -56,31 +79,11 @@ class OAuth2DecoratorLocalRedirect(oauth2client.appengine.OAuth2Decorator):
 
 
 # Set up an OAuth2Decorator object to be used for authentication
-decorator = OAuth2DecoratorLocalRedirect(
+oauth_decorator = OAuth2DecoratorLocalRedirect(
     client_id=settings.oauth.client_id,
     client_secret=settings.oauth.client_secret,
     scope=settings.oauth.scope)
 
-
-def get_current_user():
-    return users.get_current_user()
-
-
-def is_logged_in():
-    user = users.get_current_user()
-    if user:
-        return True
-    else:
-        return False
-
-
-def create_logout_url():
-    return users.create_logout_url('/')
-
-
-def create_login_url(redirect=None):
-    return users.create_login_url(redirect or routes.get('signin').url)
-
-@decorator.oauth_required
-def verify_auth(request_handler):
+@oauth_decorator.oauth_required
+def verify_oauth(request_handler):
     pass
