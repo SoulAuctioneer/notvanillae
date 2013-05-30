@@ -42,6 +42,17 @@ If for some reason you don't want a particular component, it's easy to remove.
 - [Google APIs](https://developers.google.com/api-client-library/python/start/get_started)
 - [Google Users API](https://developers.google.com/appengine/docs/python/users/)
 
+Some features provided by other boilerplates are not included. I will be considering these for future versions. 
+- User preferences and mangagement outside Google accounts
+- Sessions
+- I18N
+- Unit testing
+- Form validation
+
+If you need these features you can take a look at:
+[App Engine Essence](https://github.com/alchemycs/appengine-essence)
+and [Google App Engine Boilerplate](https://github.com/ronw23/gae-boilerplate)
+
 
 Installation
 ------------
@@ -101,7 +112,7 @@ To do
 - Make the demo app http://notvanillae.appspot.com prettier
 - Integrate a working sign in example
 - Comment all code
-- Integrate ANT build script for minifying and concatenating CSS and Javascript.
+- Integrate [ANT build script](https://github.com/h5bp/ant-build-script) for minifying and concatenating CSS and Javascript.
 - Ensure all JS resources are loaded asynchronously.
 - Score >95% on Google Page Speed.
 - Determine a dependency management strategy.
