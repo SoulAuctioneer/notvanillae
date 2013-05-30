@@ -1,7 +1,6 @@
 import os
 from library.dotdict import DotDict
 from library import utils
-from library.route_config import RouteConfig
 
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
