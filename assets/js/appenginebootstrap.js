@@ -9,13 +9,13 @@ $( document ).ready(function() {
     });
 
     $(document).on('pjax:send', function() {
-        $('#content').fadeTo(0, 0.4);
+        $('#content').fadeTo(0, 0.3);
         $('#primary_nav').find('li a').removeClass('active');
         $('#spinner').css('display','block').animate({'opacity':1},100,'swing');
     });
 
     $(document).on('pjax:success', function() {
-        $('#content').fadeTo(0, 0, function(){$(this).fadeTo(500, 1, show_active_nav)});
+        $('#content').fadeTo('slow', 1, show_active_nav);
         $('#spinner').animate({'opacity':0},100,'swing',function (){$(this).css('display','none')});
     });
 
