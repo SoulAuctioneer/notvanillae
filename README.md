@@ -42,16 +42,16 @@ If for some reason you don't want a particular component, it's easy to remove.
 - [Google APIs](https://developers.google.com/api-client-library/python/start/get_started)
 - [Google Users API](https://developers.google.com/appengine/docs/python/users/)
 
-Some features provided by other boilerplates are not included. I will be considering these for future versions. 
+Some features provided by other boilerplates are not included. I will be considering these for future versions:
 - User preferences and mangagement outside Google accounts
 - Sessions
 - I18N
 - Unit testing
 - Form validation
 
-If you need these features you can take a look at:
+If you need these features you can take a look at
 [App Engine Essence](https://github.com/alchemycs/appengine-essence)
-and [Google App Engine Boilerplate](https://github.com/ronw23/gae-boilerplate)
+or [Google App Engine Boilerplate](https://github.com/ronw23/gae-boilerplate)
 
 
 Installation
