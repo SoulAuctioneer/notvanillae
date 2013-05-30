@@ -12,7 +12,7 @@ Webapp2, Jinja2 and Google Service APIs on Python 2.7, all drizzled with home-ma
 __Fast__  
 Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.
 
-Who's This For?
+Who's this for?
 ---------------
 Not VanillAE is great for anyone who wants a rapid setup on Google App Engine, 
 using pre-built starter code that merges high-quality boilerplate, frameworks and clever stuff from the community.
@@ -24,7 +24,7 @@ This isn't a good fit if:
 - You don't want some random lunatic deciding what is the 'best' tech for your app
 
 
-What's In It?
+What's in it?
 -------------
 Although VanillAE incorporates a lot of great stuff, I haven't just thrown in everything and the kitchen sink. 
 Each component performs a specific useful function that you *probably* want, and does it better than you (easily) could without it. 
@@ -41,6 +41,17 @@ If for some reason you don't want a particular component, it's easy to remove.
 - [Jinja2](http://jinja.pocoo.org/docs/)
 - [Google APIs](https://developers.google.com/api-client-library/python/start/get_started)
 - [Google Users API](https://developers.google.com/appengine/docs/python/users/)
+
+Some features provided by other boilerplates are not included. I will be considering these for future versions:
+- User preferences and mangagement outside Google accounts
+- Sessions
+- I18N
+- Unit testing
+- Form validation
+
+If you need these features you can take a look at
+[App Engine Essence](https://github.com/alchemycs/appengine-essence)
+or [Google App Engine Boilerplate](https://github.com/ronw23/gae-boilerplate)
 
 
 Installation
@@ -83,7 +94,7 @@ http://your-app-id.appspot.com
 Congratulations!
 
 
-Customising Your App
+Customising your app
 --------------------
 
 - Add __templates__ to the `templates` directory, using `_template.html` for an example.
@@ -95,13 +106,13 @@ Customising Your App
 - Add custom __JavaScript__ to `/assets/js/main.js`
 
 
-To Do
+To do
 -----
 
 - Make the demo app http://notvanillae.appspot.com prettier
 - Integrate a working sign in example
 - Comment all code
-- Integrate ANT build script for minifying and concatenating CSS and Javascript.
+- Integrate [ANT build script](https://github.com/h5bp/ant-build-script) for minifying and concatenating CSS and Javascript.
 - Ensure all JS resources are loaded asynchronously.
 - Score >95% on Google Page Speed.
 - Determine a dependency management strategy.
