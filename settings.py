@@ -20,6 +20,7 @@ oauth = DotDict({
     'client_id': '909315780380-4srs376b72kso2uui8u6qps8joatm0mg.apps.googleusercontent.com',
     'client_secret': 'Ko5HzoC4_3z9EW8-9VAK4o4z',
     'scope': [
+        #'https://www.googleapis.com/auth/glass.timeline ',
         #'https://www.googleapis.com/auth/drive.readonly',
         #'https://www.googleapis.com/auth/drive',
         #'https://www.googleapis.com/auth/drive.apps.readonly',
@@ -27,7 +28,6 @@ oauth = DotDict({
         #'https://www.googleapis.com/auth/drive.file',
         #'https://www.googleapis.com/auth/drive.scripts',
         #'https://www.googleapis.com/auth/userinfo.profile',
-        'https://www.googleapis.com/auth/glass.timeline ',
     ]
 })
 
