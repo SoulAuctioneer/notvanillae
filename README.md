@@ -4,7 +4,7 @@ Not VanillAE
 The finest web ingredients, blended into a scrumptious boilerplate for Google App Engine.
 
 __Responsive Client__  
-HTML5 Boilerplate, Modernizr, Twitter Bootstrap, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
+HTML5 Boilerplate, Twitter Bootstrap, Modernizr, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
 
 __Simpler Server__  
 Webapp2, Jinja2 and Google Service APIs on Python 2.7, all drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.
@@ -33,7 +33,7 @@ If for some reason you don't want a particular component, it's easy to remove.
 
 - [Twitter Bootstrap](http://twitter.github.io/bootstrap/)
 - [HTML5 Boilerplate](http://html5boilerplate.com/)
-- [Modernizr](http://modernizr.com)
+- [Modernizr](http://modernizr.com) (disabled by default in favour of html5shim)
 - [Font Awesome](http://fontawesome.io/")
 - [PJAX.js](http://pjax.heroku.com/)
 - [socialite.js](http://socialitejs.com/)
@@ -93,6 +93,15 @@ http://your-app-id.appspot.com
 
 Congratulations!
 
+### Optional
+
+Not VanillAE uses [Grunt](http://gruntjs.com/) to automate css and js minification and concatenation. To install:
+ 1. Install [Node.js](http://nodejs.org/download/)
+ 2. Install the Grunt CLI: `npm install -g grunt-cli`
+ 3. Change to the project's root directory.
+ 4. Install project dependencies with npm install.
+ 5. Run Grunt with grunt.
+
 
 Customising your app
 --------------------
@@ -112,10 +121,10 @@ To do
 - Make the demo app http://notvanillae.appspot.com prettier
 - Integrate a working sign in example
 - Comment all code
-- Integrate [ANT build script](https://github.com/h5bp/ant-build-script) for minifying and concatenating CSS and Javascript.
+- Allow app to be deployed without Grunt
 - Ensure all JS resources are loaded asynchronously.
 - Score >95% on Google Page Speed.
-- Determine a dependency management strategy.
+- Determine a [dependency management strategy](http://bower.io/).
 - Integrate option for user authentication via OpenID.
 - Identify and review other similar boilerplate projects for good ideas to incorporate.
 - Create more comprehensive customization documentation.
