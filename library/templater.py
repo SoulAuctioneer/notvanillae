@@ -77,7 +77,8 @@ def add_standard_template_values(template_values):
     template_values['is_local'] = utils.is_local()
 
     # Set defaults for page title and active nav
-    template_values['title'] = routes.configs.get().nav_title + ' - ' + settings.app_title
+    nav_title = routes.configs.get().nav_title
+    template_values['title'] =  nav_title + ' - ' + settings.app_title if nav_title else settings.app_title
     template_values['active_nav'] = routes.configs.get().name
 
     return template_values
