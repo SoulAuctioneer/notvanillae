@@ -10,7 +10,7 @@ app_title = 'Not VanillAE'
 # TODO: Change this to reflect your local and production URLs
 urls = DotDict({
     'canonical': 'http://localhost:8080' if utils.is_local() else 'http://notvanillae.appspot.com',
-    'canonical_secure': 'http://localhost:8080' if utils.is_local() else 'http://notvanillae.appspot.com'
+    'canonical_secure': 'http://localhost:8080' if utils.is_local() else 'https://notvanillae.appspot.com'
 })
 
 # Google Data API OAuth Credentials
