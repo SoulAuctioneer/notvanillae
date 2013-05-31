@@ -99,8 +99,8 @@ Not VanillAE uses [Grunt](http://gruntjs.com/) to automate css and js minificati
  1. Install [Node.js](http://nodejs.org/download/)
  2. Install the Grunt CLI: `npm install -g grunt-cli`
  3. Change to the project's root directory.
- 4. Install project dependencies with npm install.
- 5. Run Grunt with grunt.
+ 4. Install project dependencies with `npm install`.
+ 5. Run Grunt with `grunt`.
 
 
 Customising your app
