@@ -16,18 +16,25 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/apple-touch-icon-114x114-precomposed.png" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/apple-touch-icon-144x144-precomposed.png" />
 
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-            }
-        </style>
-        <link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/css/appengineboilerplate.css">
-        <link rel="stylesheet" href="/assets/css/main.css">
+        {% if is_local or settings.force_dev %}
+            <link rel="stylesheet" href="/assets/css/bootstrap.css">
+            <link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
+            <link rel="stylesheet" href="/assets/css/font-awesome.css">
+            <link rel="stylesheet" href="/assets/css/notvanillae.css">
+            <link rel="stylesheet" href="/assets/css/main.css">
+        {% else %}
+            <link rel="stylesheet" href="/assets/css/all.min.css">
+        {% endif %}
 
-        <script src="/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+        <!--
+            // TODO: Uncomment if you need Modernizr. Commented out by default because it slows page load.
+            // If you uncomment Modernizr then remove the html5shiv above.
+            <script src="/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        -->
 
     </head>
     <body>
@@ -139,15 +146,36 @@
             url_canonical_secure = '{{ settings.urls.canonical_secure }}'
         </script>
 
-        <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        {% if is_local or settings.force_dev %}
 
-        <script src="/assets/js/vendor/bootstrap.min.js"></script>
+            <script src="/assets/js/vendor/jquery-1.10.1.js"></script>
+            <script src="/assets/js/vendor/bootstrap.js"></script>
+            <script src="/assets/js/vendor/jquery.pjax.js"></script>
+            <script src='/assets/js/vendor/socialite.js'></script>
+            <script src='/assets/js/notvanillae.js'></script>
+            <script src="/assets/js/main.js"></script>
 
-        <script src="/assets/js/vendor/jquery.pjax.js"></script>
-        <script src='/assets/js/vendor/socialite.js'></script>
-        <script src='/assets/js/appenginebootstrap.js'></script>
+        {% else %}
 
-        <script src="/assets/js/main.js"></script>
+            <script type="text/javascript">
+
+                // Add a script element as a child of the body
+                function downloadJSAtOnload() {
+                    var element = document.createElement("script");
+                    element.src = "/assets/js/all.min.js";
+                    document.body.appendChild(element);
+                }
+
+                // Check for browser support of event handling capability
+                if (window.addEventListener)
+                    window.addEventListener("load", downloadJSAtOnload, false);
+                else if (window.attachEvent)
+                    window.attachEvent("onload", downloadJSAtOnload);
+                else window.onload = downloadJSAtOnload;
+
+            </script>
+
+        {% endif %}
 
         {% if settings.google_analytics.enabled %}
             <script>
