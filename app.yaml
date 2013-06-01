@@ -13,12 +13,14 @@ handlers:
   upload: favicon\.ico
   expiration: 7d
   http_headers:
+    Vary: Accept-Encoding
     Last-Modified: "Sat, 01 June 2013 00:00:00 GMT"
 
 - url: /assets
   static_dir: assets
   expiration: 7d
   http_headers:
+    Vary: Accept-Encoding
     Last-Modified: "Sat, 01 June 2013 00:00:00 GMT"
 
 - url: .*
