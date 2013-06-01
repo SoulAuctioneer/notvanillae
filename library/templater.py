@@ -8,6 +8,7 @@ import routes
 import users
 import decorators
 import utils
+from jinja2htmlcompress import jinja2htmlcompress
 
 
 # Initialize jinja
@@ -16,6 +17,10 @@ jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(settings.path_templates),
     bytecode_cache=jinja2.MemcachedBytecodeCache(memcache, prefix='jinja2/bytecode/', timeout=settings.cache.jinja_bytecode_timeout)
 )
+
+# Add html compressor in prod environment
+if not utils.is_local() and not settings.force_dev:
+    jinja_environment.add_extension(jinja2htmlcompress.HTMLCompress)
 
 
 def cache_lifetime(routeconfig_name=None):
