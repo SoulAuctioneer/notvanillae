@@ -135,3 +135,5 @@ Meta
 Author: [Ash Eldritch](http://www.linkedin.com.tw/eldritch) @ PajamaNinja http://www.pajamaninja.com/
 
 License: Distributed under the [MIT license](http://opensource.org/licenses/MIT). All dependencies have their own licenses.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/382cdd95d5655cd9c0c9d0adabc05614 "githalytics.com")](http://githalytics.com/SoulAuctioneer/notvanillae)
