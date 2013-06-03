@@ -10,7 +10,7 @@ __Simpler Server__
 Webapp2, Jinja2 and Google Service APIs on Python 2.7, all drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.
 
 __Fast__  
-Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.
+Liberally sprinkled with smart caching treats, async javascript loading and squished css/javascript to keep your site fast and your GAE costs down.
 
 Who's this for?
 ---------------
@@ -118,15 +118,12 @@ Customising your app
 To do
 -----
 
-- Make the demo app http://notvanillae.appspot.com prettier
-- Integrate a working sign in example
-- Comment all code
 - Allow app to be deployed without Grunt
-- Ensure all JS resources are loaded asynchronously.
+- Comment all code
 - Score >95% on Google Page Speed.
 - Determine a [dependency management strategy](http://bower.io/).
-- Integrate option for user authentication via OpenID.
-- Identify and review other similar boilerplate projects for good ideas to incorporate.
+- Integrate option for [user authentication via OpenID](https://developers.google.com/appengine/articles/openid).
+- Identify and review [similar](https://github.com/alchemycs/appengine-essence) [boilerplate](https://github.com/coto/gae-boilerplate/) projects for good ideas to incorporate.
 - Create more comprehensive customization documentation.
 
 
