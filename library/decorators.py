@@ -1,4 +1,5 @@
 from google.appengine.api import memcache
+import os
 import webapp2
 import pickle
 import functools
@@ -103,7 +104,8 @@ def cached(lifetime=settings.cache.default_lifetime, extra_key=None):
                 args_key = hashlib.md5(pickle.dumps(hashable_args)).hexdigest()
 
                 # Generate unique cache key
-                cache_key = '{0}-{1}-{2}-{3}'.format(
+                cache_key = '{0}-{1}-{2}-{3}-{4}'.format(
+                    os.environ["CURRENT_VERSION_ID"],
                     func.__module__,
                     func.__name__,
                     args_key,
