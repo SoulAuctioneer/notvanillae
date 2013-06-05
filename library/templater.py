@@ -18,8 +18,8 @@ jinja_environment = jinja2.Environment(
     bytecode_cache=jinja2.MemcachedBytecodeCache(memcache, prefix='jinja2/bytecode/', timeout=settings.cache.jinja_bytecode_timeout)
 )
 
-# Add html compressor in prod environment
-if not utils.is_local() and not settings.force_dev:
+# Add html compressor
+if settings.compress_html:
     jinja_environment.add_extension(jinja2htmlcompress.HTMLCompress)
 
 

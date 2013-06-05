@@ -16,17 +16,17 @@ urls = DotDict({
 # Google Data API OAuth Credentials
 # TODO: Update these to reflect your own scope requirements and credentials at https://code.google.com/apis/console/
 oauth = DotDict({
-    'client_id': '909315780380-4srs376b72kso2uui8u6qps8joatm0mg.apps.googleusercontent.com',
-    'client_secret': 'Ko5HzoC4_3z9EW8-9VAK4o4z',
+    'client_id': 'your-client-id',
+    'client_secret': 'your-client-secret',
     'scope': [
         #'https://www.googleapis.com/auth/glass.timeline ',
+        #'https://www.googleapis.com/auth/userinfo.profile',
         #'https://www.googleapis.com/auth/drive.readonly',
         #'https://www.googleapis.com/auth/drive',
         #'https://www.googleapis.com/auth/drive.apps.readonly',
         #'https://www.googleapis.com/auth/drive.metadata.readonly',
         #'https://www.googleapis.com/auth/drive.file',
         #'https://www.googleapis.com/auth/drive.scripts',
-        #'https://www.googleapis.com/auth/userinfo.profile',
     ]
 })
 
@@ -38,18 +38,14 @@ google_analytics = DotDict({
     'domain': ''
 })
 
+# HTML Compression
+# TODO: Usually you'll want to enable this. Defaults to disabled for poking around the boilerplate HTML
+compress_html = False
+#compress_html = not utils.is_local() and not force_dev
+
+
 # Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
 force_dev = False
-
-# Paths to templates and code. Add any new directories to code_paths
-path_base = os.path.dirname(os.path.abspath(__file__))
-path_templates = os.path.join(path_base, 'templates')
-code_paths = [os.path.join(path_base, endpoint) for endpoint in [
-    'handlers',
-    'library',
-    'external',
-    'external/googleapi'
-]]
 
 # Global caching toggle. Allow caching if environment is not local and we're not forcing dev mode
 cache_enabled = not utils.is_local() and not force_dev
@@ -61,3 +57,13 @@ cache = DotDict({
     'browser_lifetime': None if not cache_enabled else 691200,
     'jinja_bytecode_lifetime': None if not cache_enabled else 3600
 })
+
+# Paths to templates and code. Add any new directories to code_paths
+path_base = os.path.dirname(os.path.abspath(__file__))
+path_templates = os.path.join(path_base, 'templates')
+code_paths = [os.path.join(path_base, endpoint) for endpoint in [
+    'handlers',
+    'library',
+    'external',
+    'external/googleapi'
+]]
