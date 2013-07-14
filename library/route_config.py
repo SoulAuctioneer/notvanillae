@@ -3,13 +3,13 @@ from library import utils
 
 class RouteConfig:
 
-    def __init__(self, name, url, route_template=None, jinja_template=None, handler='handlers.static.Handler',
+    def __init__(self, name, url=None, route_template=None, jinja_template=None, handler='handlers.static.Handler',
                  cachable=True, requires_signin=False, requires_oauth=False, is_default_redirect_after_signin=False,
                  show_nav=False, nav_title=None):
 
         self.name = name
-        self.url = url
-        self.route_template = route_template or url
+        self.url = url or '/' + name
+        self.route_template = route_template or self.url
         self.jinja_template = jinja_template or name + '.html'
         self.handler = handler
         self.cachable = cachable
@@ -42,7 +42,7 @@ class RouteConfigs(list):
 
         # None specified, so return first route that requires auth
         for route_config in self:
-            if route_config.requires_oauth:
+            if route_config.requires_signin:
                 return route_config
 
         return None
