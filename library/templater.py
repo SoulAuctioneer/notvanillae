@@ -23,12 +23,12 @@ if settings.compress_html:
     jinja_environment.add_extension(jinja2htmlcompress.HTMLCompress)
 
 
-def cache_lifetime(routeconfig_name=None):
+def cache_lifetime(routeconfig_name=None, *args):
 
     return settings.cache.template_lifetime if routes.configs.get(routeconfig_name).cachable else None
 
 
-def template_cachekey(routeconfig_name=None):
+def template_cachekey(routeconfig_name=None, *args):
     """
     Generates a key that is unique to the given or current RouteConfig and whether the request is a PJAX request
     :param routeconfig_name: Name of RouteConfig. Defaults to the current request's RouteConfig
