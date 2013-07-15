@@ -2,6 +2,9 @@ import os
 from library.dotdict import DotDict
 from library import utils
 
+# Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
+force_dev = False
+
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
 app_title = 'Not VanillAE'
@@ -43,9 +46,6 @@ google_analytics = DotDict({
 compress_html = False
 #compress_html = not utils.is_local() and not force_dev
 
-
-# Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
-force_dev = False
 
 # Global caching toggle. Allow caching if environment is not local and we're not forcing dev mode
 cache_enabled = not utils.is_local() and not force_dev
