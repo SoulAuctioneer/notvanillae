@@ -7,8 +7,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ title }}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="{{ settings.app_description|escape }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="{{ settings.app_keywords|escape }}">
+        <meta name="author" content="{{ settings.app_author|escape }}">
+
+        <meta property="og:url" content="{{ settings.urls.canonical|escape }}" />
+        <meta property="og:title" content="{{ settings.app_title|escape|escape }}" />
+        <meta property="og:description" content="{{ settings.app_description|escape }}" />
+        <meta property="og:image" content="{{ settings.urls.canonical|escape }}/assets/img/logo.png" />
 
         <link rel="shortcut icon" sizes="16x16 32x32" href="/assets/img/favicon.ico" />
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/apple-touch-icon-57x57-precomposed.png" />

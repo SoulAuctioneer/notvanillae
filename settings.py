@@ -8,6 +8,9 @@ force_dev = False
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
 app_title = 'Not VanillAE'
+app_description = 'The finest web ingredients, blended into a scrumptious boilerplate for App Engine'
+app_keywords = 'Twitter Bootstrap, HTML5 Boilerplate, Modernizr, Font Awesome, PJAX.js, socialite.js, Sticky Footer, Jinja2, Google APIs, Google Users API, webapp2, python'
+app_author = 'Ash Eldritch'
 
 # URLs
 # TODO: Change this to reflect your local and production URLs
@@ -37,8 +40,8 @@ oauth = DotDict({
 # TODO: Update these to reflect your own Google Analytics identifiers
 google_analytics = DotDict({
     'enabled': not utils.is_local(),
-    'id': '',
-    'domain': ''
+    'id': 'UA-1520906-5',
+    'domain': 'notvanillae.appspot.com'
 })
 
 # HTML Compression
