@@ -3,20 +3,20 @@ from library.dotdict import DotDict
 from library import utils
 
 # Force dev mode even on deployed app. Should be true only when debugging. Caching and error reporting use this setting
-force_dev = False
+force_dev = True
 
 # App title, used for page title and social sharing title
 # TODO: Update this app title to reflect your own
-app_title = 'Not VanillAE'
-app_description = 'The finest web ingredients, blended into a scrumptious boilerplate for App Engine'
-app_keywords = 'Twitter Bootstrap, HTML5 Boilerplate, Modernizr, Font Awesome, PJAX.js, socialite.js, Sticky Footer, Jinja2, Google APIs, Google Users API, webapp2, python'
+app_title = 'VitalMedicals'
+app_description = ''
+app_keywords = ''
 app_author = 'Ash Eldritch'
 
 # URLs
 # TODO: Change this to reflect your local and production URLs
 urls = DotDict({
-    'canonical': 'http://localhost:8080' if utils.is_local() else 'http://notvanillae.appspot.com',
-    'canonical_secure': 'http://localhost:8080' if utils.is_local() else 'https://notvanillae.appspot.com'
+    'canonical': 'http://localhost:8080' if utils.is_local() else 'http://www.vitalmedicals.com',
+    'canonical_secure': 'http://localhost:8080' if utils.is_local() else 'https://www.vitalmedicals.com'
 })
 
 # Google Data API OAuth Credentials
@@ -39,7 +39,7 @@ oauth = DotDict({
 # Google Analytics
 # TODO: Update these to reflect your own Google Analytics identifiers
 google_analytics = DotDict({
-    'enabled': not utils.is_local(),
+    'enabled': False, # not utils.is_local(),
     'id': 'UA-1520906-5',
     'domain': 'notvanillae.appspot.com'
 })

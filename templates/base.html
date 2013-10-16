@@ -42,6 +42,25 @@
             <script src="/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         -->
 
+        <script>
+
+            // Only non-blocking JS should be here
+
+            // External scripts are loaded asynchronously. Defer dependent functions until after load.
+            deferred_functions = [];
+            function defer_function(fn) {
+                if (typeof $ === 'undefined')
+                    deferred_functions.push(fn);
+                else
+                    fn();
+            }
+
+            // Passing variables from server
+            active_nav = '{{ active_nav }}';
+            url_canonical_secure = '{{ settings.urls.canonical_secure }}'
+
+        </script>
+
     </head>
     <body>
 
@@ -51,24 +70,21 @@
 
             <!-- Header -->
 
-            <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-            <div id="primary_nav" class="navbar navbar-inverse navbar-fixed-top">
+            <div id="primary_nav" class="navbar">
                 <div class="navbar-inner">
                     <div class="container">
+                        <!--
                         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
+                        -->
                         <a class="brand" href="/" data-pjax>
-                            {{ settings.app_title }}
+                            <img src="/assets/img/logo-2x.png" width="242" height="60">
                         </a>
-                        <ul class="nav pull-right">
-                            <li id="signin_notice" style="opacity:0;">&nbsp;</li>
-                        </ul>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav">
+                        <!--<div class="nav-collapse collapse">-->
+                            <ul class="nav pull-right">
                                 {% for route_config in route_configs %}
                                     {% if route_config.show_nav %}
                                         <li><a
@@ -80,15 +96,16 @@
                                         </a></li>
                                     {% endif %}
                                 {% endfor %}
-                                <li><a id="header-nav-menu-github" href="https://github.com/SoulAuctioneer/notvanillae"><i class="icon-github" style="font-size:18px;vertical-align:middle;"></i></a></li>
                             </ul>
-                        </div><!--/.nav-collapse -->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
             <!-- End Header -->
 
+            <!-- PJAX Page Load Spinner -->
             <div id="spinner" class="spinner" style="display:none; opacity: 0;"></div>
+            <!-- End PJAX Page Load Spinner -->
 
             <!-- Content -->
             <div id="content" class="container">
@@ -108,7 +125,7 @@
                 <div class="row">
 
                     <div id="footer-blurb" class="span7 padded">
-                        Sticky Footer with socialite.js deferred Javascript sharing buttons.
+                        &copy; 2013 VitalMedicals
                     </div>
 
                     <div id="footer-share" class="span5 padded">
@@ -147,11 +164,6 @@
         <!-- End Footer -->
 
         <!-- Scripts -->
-        <script>
-            active_nav = '{{ active_nav }}';
-            url_canonical_secure = '{{ settings.urls.canonical_secure }}'
-        </script>
-
         {% if is_local or settings.force_dev %}
 
             <script src="/assets/js/vendor/jquery-1.10.1.js"></script>

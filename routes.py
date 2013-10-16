@@ -2,20 +2,10 @@ from library.route_config import RouteConfig, RouteConfigs
 
 
 # Route configuration
-# TODO: Add your own routes here
 configs = RouteConfigs([
 
-    RouteConfig('intro', '/', is_default_redirect_after_signin=True, show_nav=True, nav_title='Intro'),
+    RouteConfig('intro', '/', is_default_redirect_after_signin=True, show_nav=False),
+    RouteConfig('team', show_nav=True, nav_title='Team'),
+    RouteConfig('contact', show_nav=True, nav_title='Contact')
 
-    RouteConfig('docs', show_nav=True, nav_title='Docs'),
-
-    RouteConfig('banoffipie', show_nav=True, nav_title='Secret Banoffi Pie', requires_signin=True),
-
-    # NOTE: Leave the routes below if you want user authentication and oauth.
-
-    RouteConfig('signin', handler='handlers.signin.Handler', cachable=False, nav_title='Sign In'),
-
-    RouteConfig('signin_notice', cachable=False),
-
-    RouteConfig('authorize', handler='handlers.authorize.Handler', requires_signin=True, cachable=False),
 ])
