@@ -1,0 +1,170 @@
+{% extends base_template %}
+
+{% block content %}
+
+    <div class="hero-unit masthead skinny">
+        <h1>Docs</h1>
+        <ul class="masthead-links">
+            <li><a href="#whos-this-for">Who's this for?</a></li>
+            <li><a href="#whats-in-it">What's in it?</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#customising-your-app">Customising your app</a></li>
+            <li><a href="#to-do">To do</a></li>
+            <li><a href="#meta">Meta</a></li>
+        </ul>
+    </div>
+
+    <h3>
+        <a name="whos-this-for" class="anchor" href="#whos-this-for"><span class="octicon octicon-link"></span></a>Who's
+        this for?</h3>
+
+    <p>Not VanillAE is great for anyone who wants a rapid setup on Google App Engine,
+        using pre-built starter code that merges high-quality boilerplate, frameworks and clever stuff from the
+        community.</p>
+
+    <p>This isn't a good fit if:</p>
+
+    <ul>
+        <li>You're not using Google App Engine</li>
+        <li>You're building a large app that would benefit from a full MVC framework such as Django</li>
+        <li>You need a Content Management System (take a look at Django-cms + Google Cloud SQL, or Vosao for Java on
+            GAE)
+        </li>
+        <li>You don't want some random lunatic deciding what is the 'best' tech for your app</li>
+    </ul><h3>
+    <a name="whats-in-it" class="anchor" href="#whats-in-it"><span class="octicon octicon-link"></span></a>What's in it?
+</h3>
+
+    <p>Although VanillAE incorporates a lot of great stuff, I haven't just thrown in everything and the kitchen sink.
+        Each component performs a specific useful function that you <em>probably</em> want, and does it better than you
+        (easily) could without it.
+        Each component is used in the starter site bundled with VanillAE.
+        If for some reason you don't want a particular component, it's easy to remove.</p>
+
+    <ul>
+        <li><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></li>
+        <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+        <li><a href="http://modernizr.com">Modernizr</a></li>
+        <li><a href="http://fontawesome.io/%22">Font Awesome</a></li>
+        <li><a href="http://pjax.heroku.com/">PJAX.js</a></li>
+        <li><a href="http://socialitejs.com/">socialite.js</a></li>
+        <li><a href="http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html">Sticky Footer</a></li>
+        <li><a href="http://jinja.pocoo.org/docs/">Jinja2</a></li>
+        <li><a href="https://developers.google.com/api-client-library/python/start/get_started">Google APIs</a></li>
+        <li><a href="https://developers.google.com/appengine/docs/python/users/">Google Users API</a></li>
+    </ul><h3>
+    <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation
+</h3>
+
+    <h4>
+        <a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites
+    </h4>
+
+    <ul>
+        <li>
+            <a href="http://www.python.org/getit/releases/2.7/">Python 2.7</a>.
+            Mac OS X 10.7 Lion users already have Python 2.7 installed.
+        </li>
+        <li>
+            <a href="https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python">The App Engine
+                SDK for Python</a>.
+            Run the installer if appropriate for your platform, or extract the zip file in a convenient place.
+        </li>
+    </ul><h4>
+    <a name="creating-a-google-app-engine-instance" class="anchor" href="#creating-a-google-app-engine-instance"><span
+            class="octicon octicon-link"></span></a>Creating a Google App Engine instance</h4>
+
+    <p>You'll need to host your app on an instance of Google App Engine:</p>
+
+    <ol>
+        <li>Go to <a href="http://appengine.google.com">http://appengine.google.com</a>.</li>
+        <li>Click Create Application and create a public Google App Engine instance hosted on appspot.com.</li>
+        <li>Give the application an Application Identifier and select Google Accounts users. You'll need the application
+            identifier later to configure Not VanillAE.
+        </li>
+    </ol><h4>
+    <a name="getting-the-code" class="anchor" href="#getting-the-code"><span class="octicon octicon-link"></span></a>Getting
+    the code</h4>
+
+    <ul>
+        <li>
+            <strong>The proper way</strong>: Clone (or fork and clone) this repository
+            <code>git clone https://github.com/SoulAuctioneer/NotVanillAE.git</code>
+        </li>
+        <li>
+            <strong>The easy way</strong>: <a href="https://github.com/SoulAuctioneer/NotVanillAE/archive/master.zip">Download
+            the zip</a> and extract it.
+        </li>
+    </ul><h4>
+    <a name="configuring-the-app" class="anchor" href="#configuring-the-app"><span class="octicon octicon-link"></span></a>Configuring
+    the app</h4>
+
+    <ul>
+        <li>Edit <code>app.yaml</code> and change the <code>application</code> value to the Application Identifier you
+            specified on appspot.com.
+        </li>
+        <li>Edit <code>settings.py</code> and change <code>app_title</code>, <code>urls</code>, <code>oauth</code> and
+            <code>google_analytics</code>.
+        </li>
+    </ul><h4>
+    <a name="deploying-the-app" class="anchor" href="#deploying-the-app"><span class="octicon octicon-link"></span></a>Deploying
+    the app</h4>
+
+    <ul>
+        <li>Run the following command from a prompt: <code>appcfg.py update notvanillae/</code> or click Deploy in
+            Google App Engine Launcher.
+        </li>
+        <li>Enter your Google username and password at the prompts.</li>
+    </ul>
+    <p>You can now see your application running on App Engine. If you set up a free appspot.com domain name, the URL for
+        your website begins with your application ID:</p>
+
+    <p><a href="http://your-app-id.appspot.com">http://your-app-id.appspot.com</a></p>
+
+    <p>Congratulations!</p>
+
+    <h3>
+        <a name="customising-your-app" class="anchor" href="#customising-your-app"><span
+                class="octicon octicon-link"></span></a>Customising your app</h3>
+
+    <ul>
+        <li>Add <strong>templates</strong> to the <code>templates</code> directory, using <code>_template.html</code>
+            for an example.
+        </li>
+        <li>Configure <strong>routes</strong> in <code>routes.py</code>, using the examples to get started.</li>
+        <li>Add <strong>handlers</strong> for non-static routes.</li>
+        <li>
+            <strong>Decorate</strong> your handler methods with <code>@decorators.checks_auth</code> and/or <code>@decorators.sends_response</code>.
+            A <code>@cached</code> decorator is also available.
+        </li>
+        <li>
+            <strong>PJAX</strong> any internal links by adding a <code>data-pjax</code> attribute to your link tags,
+            i.e. <code>&lt;a href="..." data-pjax&gt;...&lt;/a&gt;</code>
+        </li>
+        <li>Add custom <strong>CSS</strong> to <code>/assets/css/main.css</code>
+        </li>
+        <li>Add custom <strong>JavaScript</strong> to <code>/assets/js/main.js</code>
+        </li>
+    </ul><h3>
+    <a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a>To do</h3>
+
+    <ul>
+        <li>Make the demo app <a href="http://notvanillae.appspot.com">http://notvanillae.appspot.com</a> prettier</li>
+        <li>Integrate a working sign in example</li>
+        <li>Comment all code</li>
+        <li>Integrate ANT build script for minifying and concatenating CSS and Javascript.</li>
+        <li>Ensure all JS resources are loaded asynchronously.</li>
+        <li>Score &gt;95% on Google Page Speed.</li>
+        <li>Determine a dependency management strategy.</li>
+        <li>Integrate option for user authentication via OpenID.</li>
+        <li>Identify and review other similar boilerplate projects for good ideas to incorporate.</li>
+        <li>Create more comprehensive customization documentation.</li>
+    </ul><h3>
+    <a name="meta" class="anchor" href="#meta"><span class="octicon octicon-link"></span></a>Meta</h3>
+
+    <p>Author: <a href="http://www.linkedin.com.tw/eldritch">Ash Eldritch</a> @ PajamaNinja <a
+            href="http://www.pajamaninja.com/">http://www.pajamaninja.com/</a></p>
+
+    <p>License: Distributed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>. All dependencies
+        have their own licenses.</p>
+{% endblock %}

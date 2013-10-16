@@ -42,11 +42,4 @@ $( document ).ready(function() {
 
     // Socialite
     Socialite.load($('#footer-share'));
-
-
-    // External scripts are loaded asynchronously. Execute dependent functions
-    $.each(deferred_functions, function(index, value) {
-        value();
-    });
-
 });

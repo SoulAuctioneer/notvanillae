@@ -1,5 +1,5 @@
 # TODO: Change application to the identifier you specified on Google App Engine
-application: vital-medicals
+application: notvanillae
 version: 1
 runtime: python27
 api_version: 1
@@ -21,7 +21,7 @@ handlers:
   expiration: 7d
   http_headers:
     Vary: Accept-Encoding
-    Last-Modified: "Sat, 24 Aug 2013 00:00:00 GMT"
+    Last-Modified: "Sat, 01 June 2013 00:00:00 GMT"
 
 - url: .*
   script: main.app

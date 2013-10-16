@@ -1,28 +1,46 @@
 {% extends base_template %}
 
+{% set title = "Not VanillAE - Scrumptious Boilerplate for Google App Engine" %}
+
 {% block content %}
 
-    <section class="row">
+    <div class="hero-unit masthead">
+        <div class="container">
+            <h1>{{ settings.app_title }}</h1>
+            <p>The finest web ingredients, blended into a scrumptious boilerplate for App Engine</p>
+            <p>
+                <a href="https://github.com/SoulAuctioneer/notvanillae" class="btn btn-primary btn-large"><i class="icon-github"></i> Fork</a>
+                <a href="https://github.com/SoulAuctioneer/notvanillae/archive/master.zip" class="btn btn-primary btn-large"><i class="icon-cloud-download"></i> Spoon</a>
+            </p>
+            <ul class="masthead-links">
+                <li><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a></li>
+                <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+                <li><a href="http://modernizr.com/">Modernizr</a></li>
+                <li><a href="http://fontawesome.io/">Font Awesome</a></li>
+                <li><a href="http://pjax.heroku.com/">PJAX.js</a></li>
+                <li><a href="http://socialitejs.com/">socialite.js</a></li>
+                <li><a href="http://twitter.github.io/bootstrap/examples/sticky-footer-navbar.html">Sticky Footer</a></li>
+                <li><a href="http://jinja.pocoo.org/docs/">Jinja2</a></li>
+                <li><a href="https://developers.google.com/api-client-library/python/start/get_started">Google APIs</a></li>
+                <li><a href="https://developers.google.com/appengine/docs/python/users/">Google Users API</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <!-- Example row of columns -->
+    <div class="row">
         <div class="span4">
-            <p>
-                VitalMedicals is developing a <strong>smart software ecosystem</strong> for the healthcare industry to improve operational efficiency and patient safety.
-            </p>
-            <p>
-                The VitalMedicals ecosystem delivers <strong>locationally-aware</strong>, <strong>contextually-relevant</strong> information to clinicians' wearable and smart devices.
-            </p>
-            <p>
-                <strong>VitalsOnGlass</strong>, our first product, streams <strong>live vital signs</strong> to the operating surgeon's <strong>Google Glass</strong> during conscious sedation procedures or to the nurse in the recovery room.
-            </p>
-            <p>
-                <strong>SurgStream</strong> streams live fluoroscopy, ultrasound or endoscopy video to Glass during procedures.
-            </p>
+            <h2>Responsive Client</h2>
+            <p>Twitter Bootstrap, HTML5 Boilerplate, Modernizr, Font Awesome, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.</p>
         </div>
-
-        <div class="span8">
-            <div class="flex-video widescreen"><iframe src="https://www.youtube-nocookie.com/embed/AoQBm8F0S0Y" frameborder="0" allowfullscreen=""></iframe></div>
+        <div class="span4">
+            <h2>Simpler Server</h2>
+            <p>Webapp2, Jinja2 and Google Service APIs on Python 2.7, all drizzled with home-made decorators and wrappers for lightweight routing, templating and user authentication.</p>
+       </div>
+        <div class="span4">
+            <h2>Fast</h2>
+            <p>Client and server are liberally sprinkled with smart caching treats to keep your site fast and your GAE costs down.</p>
         </div>
-
-    </section>
+    </div>
 
 {% endblock %}
