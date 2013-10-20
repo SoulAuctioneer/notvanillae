@@ -19,6 +19,13 @@ $( document ).ready(function() {
         $('#spinner').animate({'opacity':0},100,'swing',function (){$(this).css('display','none')});
     });
 
+    $(document).on('pjax:complete', function() {
+        if (window.ga) {
+            ga('set', 'location', window.location.href);
+            ga('send', 'pageview');
+        }
+    });
+
     function show_active_nav() {
         $('#header-nav-menu-' + active_nav).addClass('active');
         switch (active_nav) {
