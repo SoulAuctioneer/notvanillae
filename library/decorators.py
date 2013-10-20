@@ -104,8 +104,7 @@ def cached(lifetime=settings.cache.default_lifetime, extra_key=None):
                 args_key = hashlib.md5(pickle.dumps(hashable_args)).hexdigest()
 
                 # Generate unique cache key
-                cache_key = '{0}-{1}-{2}-{3}-{4}'.format(
-                    os.environ["CURRENT_VERSION_ID"],
+                cache_key = '{0}-{1}-{2}-{3}'.format(
                     func.__module__,
                     func.__name__,
                     args_key,
