@@ -21,7 +21,7 @@ handlers:
   expiration: 7d
   http_headers:
     Vary: Accept-Encoding
-    Last-Modified: "Sat, 01 June 2013 00:00:00 GMT"
+    Last-Modified: "Sat, 19 Oct 2013 00:00:00 GMT"
 
 - url: .*
   script: main.app
