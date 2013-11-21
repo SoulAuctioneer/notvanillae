@@ -3,7 +3,7 @@ Not VanillAE
 
 The finest web ingredients, blended into a scrumptious boilerplate for Google App Engine.
 
-Sites created with Not VanillAE: [Superhuman Labs](http://www.superhumanlabs.com) [VitalMedicals](http://www.vitalmedicals.com) [NoJack](http://www.nojackalarm.com) [YourShow](http://yourshow.superhumanlabs.com)
+Sample websites created with Not VanillAE: [Superhuman Labs](http://www.superhumanlabs.com), [VitalMedicals](http://www.vitalmedicals.com), [NoJack](http://www.nojackalarm.com), [YourShow](http://yourshow.superhumanlabs.com)
 
 __Responsive Client__  
 HTML5 Boilerplate, Twitter Bootstrap, Modernizr, PJAX.js, socialite.js, and sticky footer, seamlessly blended and buttery smooth.
